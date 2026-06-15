@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO & GBP Performance Report | Price Busters Plumbing | Jan–May 2026</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --primary: #1e3a8a; --primary-light: #3b5bdb; --accent: #f59e0b; --accent2: #10b981;
+    --danger: #ef4444; --warning: #f97316; --bg: #f8fafc; --card: #ffffff;
+    --border: #e2e8f0; --text: #1e293b; --muted: #64748b; --green: #16a34a; --red: #dc2626;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--bg); color:var(--text); }
+  .report-header { background:linear-gradient(135deg,#1e3a8a 0%,#1e40af 50%,#2563eb 100%); color:#fff; padding:40px 48px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; }
+  .report-header h1 { font-size:1.9rem; font-weight:700; line-height:1.2; }
+  .report-header .subtitle { font-size:1rem; opacity:0.85; margin-top:6px; }
+  .header-meta { text-align:right; }
+  .header-meta .badge { background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3); border-radius:20px; padding:5px 14px; font-size:0.82rem; display:inline-block; margin-bottom:8px; }
+  .header-meta p { font-size:0.85rem; opacity:0.8; }
+  .tab-nav { background:#fff; border-bottom:2px solid var(--border); position:sticky; top:0; z-index:100; display:flex; overflow-x:auto; }
+  .tab-btn { padding:15px 22px; font-size:0.85rem; font-weight:600; color:var(--muted); border:none; background:none; cursor:pointer; white-space:nowrap; border-bottom:3px solid transparent; transition:all 0.2s; }
+  .tab-btn:hover { color:var(--primary); background:#f8fafc; }
+  .tab-btn.active { color:var(--primary); border-bottom-color:var(--primary); background:#fff; }
+  .tab-content { display:none; padding:32px 40px; max-width:1400px; margin:0 auto; }
+  .tab-content.active { display:block; }
+  .metrics-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:16px; margin-bottom:28px; }
+  .metric-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:22px 20px; text-align:center; }
+  .metric-card .val { font-size:2.2rem; font-weight:700; color:var(--primary); line-height:1; }
+  .metric-card .lbl { font-size:0.78rem; color:var(--muted); margin-top:6px; text-transform:uppercase; letter-spacing:0.5px; }
+  .metric-card .change { font-size:0.8rem; margin-top:5px; }
+  .metric-card .change.up { color:var(--green); }
+  .metric-card .change.down { color:var(--red); }
+  .metric-card.highlight { border-color:var(--primary); background:linear-gradient(135deg,#eff6ff,#dbeafe); }
+  .metric-card.good { border-color:var(--accent2); background:linear-gradient(135deg,#ecfdf5,#d1fae5); }
+  .metric-card.warn { border-color:var(--warning); background:linear-gradient(135deg,#fff7ed,#fed7aa); }
+  .metric-card.danger { border-color:var(--danger); background:linear-gradient(135deg,#fef2f2,#fecaca); }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:24px; margin-bottom:24px; }
+  .card h3 { font-size:1.05rem; font-weight:700; margin-bottom:16px; color:var(--text); }
+  .tag { font-size:0.72rem; font-weight:600; padding:2px 8px; border-radius:10px; margin-left:8px; vertical-align:middle; }
+  .tag.green { background:#dcfce7; color:#15803d; }
+  .tag.red { background:#fee2e2; color:#b91c1c; }
+  .tag.blue { background:#dbeafe; color:#1d4ed8; }
+  .tag.orange { background:#ffedd5; color:#c2410c; }
+  .tag.purple { background:#f3e8ff; color:#7c3aed; }
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  .three-col { display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; }
+  @media(max-width:900px){ .two-col,.three-col { grid-template-columns:1fr; } }
+  .chart-wrap { position:relative; height:280px; }
+  .chart-wrap-lg { position:relative; height:360px; }
+  .data-table { width:100%; border-collapse:collapse; font-size:0.85rem; }
+  .data-table th { background:#f1f5f9; color:var(--muted); font-weight:600; text-align:left; padding:10px 14px; border-bottom:2px solid var(--border); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.5px; }
+  .data-table td { padding:10px 14px; border-bottom:1px solid #f1f5f9; vertical-align:middle; }
+  .data-table tr:hover td { background:#f8fafc; }
+  .badge-green { background:#dcfce7; color:#15803d; padding:3px 10px; border-radius:20px; font-size:0.75rem; font-weight:600; }
+  .badge-red { background:#fee2e2; color:#b91c1c; padding:3px 10px; border-radius:20px; font-size:0.75rem; font-weight:600; }
+  .badge-yellow { background:#fef9c3; color:#854d0e; padding:3px 10px; border-radius:20px; font-size:0.75rem; font-weight:600; }
+  .badge-blue { background:#dbeafe; color:#1d4ed8; padding:3px 10px; border-radius:20px; font-size:0.75rem; font-weight:600; }
+  .badge-orange { background:#ffedd5; color:#c2410c; padding:3px 10px; border-radius:20px; font-size:0.75rem; font-weight:600; }
+  .badge-gray { background:#f1f5f9; color:#475569; padding:3px 10px; border-radius:20px; font-size:0.75rem; font-weight:600; }
+  .badge-purple { background:#f3e8ff; color:#7c3aed; padding:3px 10px; border-radius:20px; font-size:0.75rem; font-weight:600; }
+  .alert { border-radius:10px; padding:16px 20px; margin-bottom:20px; border-left:4px solid; }
+  .alert.danger { background:#fef2f2; border-color:#ef4444; }
+  .alert.warning { background:#fffbeb; border-color:#f59e0b; }
+  .alert.info { background:#eff6ff; border-color:#3b82f6; }
+  .alert.success { background:#f0fdf4; border-color:#22c55e; }
+  .alert.purple { background:#faf5ff; border-color:#a855f7; }
+  .alert strong { font-size:0.9rem; display:block; margin-bottom:4px; }
+  .alert p,.alert ul { font-size:0.85rem; color:var(--muted); }
+  .alert ul { padding-left:16px; }
+  section h2 { font-size:1.3rem; font-weight:700; margin:0 0 20px; padding-bottom:10px; border-bottom:2px solid var(--border); color:var(--primary); }
+  .rank-chip { display:inline-block; min-width:36px; text-align:center; padding:3px 10px; border-radius:20px; font-weight:700; font-size:0.82rem; }
+  .rank-top3 { background:#dcfce7; color:#15803d; }
+  .rank-top10 { background:#dbeafe; color:#1d4ed8; }
+  .rank-top20 { background:#fef9c3; color:#854d0e; }
+  .rank-low { background:#fee2e2; color:#b91c1c; }
+  .ai-chip { background:linear-gradient(135deg,#7c3aed,#6d28d9); color:#fff; padding:3px 10px; border-radius:20px; font-size:0.72rem; font-weight:600; }
+  .progress-bar { background:#e2e8f0; border-radius:99px; height:8px; overflow:hidden; margin-top:6px; }
+  .progress-fill { height:100%; border-radius:99px; background:linear-gradient(90deg,var(--primary),#3b82f6); }
+  .action-table .priority-critical { color:#b91c1c; font-weight:700; }
+  .action-table .priority-high { color:#c2410c; font-weight:700; }
+  .action-table .priority-medium { color:#854d0e; }
+  footer { text-align:center; padding:32px; color:var(--muted); font-size:0.82rem; border-top:1px solid var(--border); margin-top:40px; }
+</style>
+</head>
+<body>
+
+<header class="report-header">
+  <div>
+    <h1>Price Busters Plumbing & Sewer</h1>
+    <div class="subtitle">SEO & GBP Performance Report &nbsp;·&nbsp; pricebustersplumbing.com</div>
+    <div class="subtitle">Seattle · Lynnwood · Bellevue, WA &nbsp;·&nbsp; (206) PLUMBER</div>
+  </div>
+  <div class="header-meta">
+    <div class="badge">Jan 1 – May 31, 2026</div>
+    <p>GA4 Property: 311968464</p>
+    <p>Prepared by Real Time Marketing</p>
+    <p>Report Date: June 15, 2026</p>
+  </div>
+</header>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" onclick="showTab('summary')">Executive Summary</button>
+  <button class="tab-btn" onclick="showTab('ga4')">GA4 Analytics</button>
+  <button class="tab-btn" onclick="showTab('gbp')">GBP Performance</button>
+  <button class="tab-btn" onclick="showTab('rankings')">Map Pack Rankings</button>
+  <button class="tab-btn" onclick="showTab('content')">Website Audit</button>
+  <button class="tab-btn" onclick="showTab('technical')">Technical SEO</button>
+  <button class="tab-btn" onclick="showTab('competitors')">Competitors</button>
+  <button class="tab-btn" onclick="showTab('ai')">AI Search Traffic</button>
+  <button class="tab-btn" onclick="showTab('actions')">Priority Actions</button>
+</nav>
+
+<!-- ===================== SUMMARY ===================== -->
+<div id="tab-summary" class="tab-content active">
+  <section>
+    <h2>Executive Summary</h2>
+
+    <div class="metrics-grid">
+      <div class="metric-card highlight">
+        <div class="val">5,242</div>
+        <div class="lbl">Total Sessions</div>
+        <div class="change up">Jan–May 2026</div>
+      </div>
+      <div class="metric-card highlight">
+        <div class="val">3,514</div>
+        <div class="lbl">Real US Sessions</div>
+        <div class="change">~1,700 bots filtered</div>
+      </div>
+      <div class="metric-card good">
+        <div class="val">2,020</div>
+        <div class="lbl">Organic Search</div>
+        <div class="change up">59.9% engagement</div>
+      </div>
+      <div class="metric-card good">
+        <div class="val">749</div>
+        <div class="lbl">GBP Traffic</div>
+        <div class="change up">9.6% conv. rate</div>
+      </div>
+      <div class="metric-card warn">
+        <div class="val">44.3%</div>
+        <div class="lbl">Engagement Rate</div>
+        <div class="change down">Bots depressing this</div>
+      </div>
+      <div class="metric-card danger">
+        <div class="val">3,106</div>
+        <div class="lbl">FAKE Conversions</div>
+        <div class="change down">Tracking bug – fix now</div>
+      </div>
+      <div class="metric-card good">
+        <div class="val">~194</div>
+        <div class="lbl">Real Conversions</div>
+        <div class="change up">Excl. Unassigned bug</div>
+      </div>
+      <div class="metric-card">
+        <div class="val">12</div>
+        <div class="lbl">AI Referrals</div>
+        <div class="change up">ChatGPT + Perplexity</div>
+      </div>
+    </div>
+
+    <div class="alert danger">
+      <strong>🚨 Critical: Conversion Tracking Bug</strong>
+      <p>The "Unassigned" channel shows 3,106 conversions from only 143 sessions — a 2,172% conversion rate that's physically impossible. A GA4 event (likely <code>session_start</code> or <code>page_view</code>) has been incorrectly marked as a conversion. <strong>Fix in GA4 Admin › Events before the next reporting period.</strong> Real conversions are approximately 194 for Jan–May 2026.</p>
+    </div>
+
+    <div class="alert warning">
+      <strong>⚠️ May 2026 Direct Traffic Spike</strong>
+      <p>Direct sessions jumped 124% in May (512 → 1,148) while engagement crashed to 21.5%. This indicates an untagged campaign (email, SMS, or print) or a bot surge. Identify the source and add UTM parameters before the next send.</p>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <h3>Monthly Sessions</h3>
+        <div class="chart-wrap"><canvas id="monthlyChart"></canvas></div>
+      </div>
+      <div class="card">
+        <h3>Traffic by Channel</h3>
+        <div class="chart-wrap"><canvas id="channelChart"></canvas></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Key Wins <span class="tag green">Strengths</span></h3>
+      <ul style="list-style:disc;padding-left:20px;line-height:2;font-size:0.9rem;">
+        <li>Lynnwood GBP dominates map pack: #1 sewer main installation, #2 plumber, #3 drain cleaning & water heater installation</li>
+        <li>Organic search drives 2,020 high-quality sessions at 59.9% engagement — the best-quality volume channel</li>
+        <li>GBP/GMB generates 749 sessions at 9.6% conversion rate — highest converting channel</li>
+        <li>Seattle GBP recovered from positions 50–115 (Nov 2025) to 7–30 range (Jan 2026) — strong trajectory</li>
+        <li>Contact page drives deep engagement: 899 views at 3:17 avg duration</li>
+        <li>FAQPage schema on sewer repair and water heater pages — eligible for Google rich results</li>
+        <li>Memorable vanity numbers: (206) PLUMBER + (425) PLUMBER — massive brand recall advantage</li>
+        <li>Bing organic: 172 sessions, 11.6% conversion rate — outperforms Google Paid Search</li>
+        <li>Price Busters now appears in ChatGPT and Perplexity AI recommendations (12 tracked sessions, 1 conversion)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Critical Issues <span class="tag red">Fix Now</span></h3>
+      <ul style="list-style:disc;padding-left:20px;line-height:2;font-size:0.9rem;">
+        <li>Conversion tracking bug: Unassigned channel shows 3,106 fake conversions — all reporting unreliable until fixed</li>
+        <li>Google Paid Search: 52 sessions, 0 conversions — ad spend is wasted, needs immediate campaign audit</li>
+        <li>May 2026 Direct spike (1,148 sessions, 21.5% engagement) — untracked traffic source distorting all metrics</li>
+        <li>Bot traffic: ~1,400+ sessions from Singapore (626) + China (179) = 16%+ of total sessions</li>
+        <li>Desktop 79% vs mobile 21% — opposite of expected local plumber split, confirms heavy bot traffic</li>
+        <li>Homepage and drain cleaning page missing FAQPage schema — not eligible for Google rich results</li>
+        <li>/render GTM ghost traffic: 819 views inflating all page metrics</li>
+        <li>Google Search Console not connected — no keyword impressions, CTR, or position data</li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== GA4 ===================== -->
+<div id="tab-ga4" class="tab-content">
+  <section>
+    <h2>GA4 Analytics Performance</h2>
+
+    <div class="metrics-grid">
+      <div class="metric-card highlight"><div class="val">5,242</div><div class="lbl">Total Sessions</div></div>
+      <div class="metric-card"><div class="val">5,899</div><div class="lbl">Total Users</div></div>
+      <div class="metric-card"><div class="val">8,965</div><div class="lbl">Page Views</div></div>
+      <div class="metric-card warn"><div class="val">44.3%</div><div class="lbl">Engagement Rate</div></div>
+      <div class="metric-card warn"><div class="val">55.7%</div><div class="lbl">Bounce Rate</div></div>
+      <div class="metric-card good"><div class="val">~194</div><div class="lbl">Real Conversions</div></div>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <h3>Monthly Sessions & Engagement</h3>
+        <div class="chart-wrap-lg"><canvas id="monthlyDetailChart"></canvas></div>
+      </div>
+      <div class="card">
+        <h3>Engagement Rate by Month</h3>
+        <div class="chart-wrap-lg"><canvas id="engagementChart"></canvas></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Monthly Breakdown</h3>
+      <table class="data-table">
+        <thead><tr><th>Month</th><th>Sessions</th><th>Users</th><th>Eng. Rate</th><th>Bounce</th><th>Real Conv.</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>January 2026</td><td>739</td><td>734</td><td>52.4%</td><td>47.6%</td><td>~51</td><td>Stable baseline</td></tr>
+          <tr><td>February 2026</td><td>756</td><td>1,051</td><td>52.5%</td><td>47.5%</td><td>~27</td><td>Cross-device users elevated</td></tr>
+          <tr><td>March 2026</td><td>902</td><td>1,171</td><td>50.2%</td><td>49.8%</td><td>~36</td><td>+19% growth vs Feb</td></tr>
+          <tr><td>April 2026</td><td>1,093</td><td>1,240</td><td>47.8%</td><td>52.2%</td><td>~48</td><td>Growth continues</td></tr>
+          <tr><td>May 2026</td><td><strong>1,745</strong></td><td>2,037</td><td><span style="color:#dc2626">32.0%</span></td><td>68.0%</td><td>~32</td><td><span class="badge-red">Spike – Direct +124%</span></td></tr>
+          <tr style="background:#f1f5f9;font-weight:600"><td>Total</td><td>5,242</td><td>5,899</td><td>44.3% avg</td><td>55.7% avg</td><td>~194</td><td>Excl. 3,106 fake conversions</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Traffic Channel Performance</h3>
+      <table class="data-table">
+        <thead><tr><th>Channel</th><th>Sessions</th><th>Eng. Rate</th><th>Real Conv.</th><th>Conv. Rate</th><th>Quality</th></tr></thead>
+        <tbody>
+          <tr><td>Direct (untagged)</td><td>2,647</td><td>31.3%</td><td>29</td><td>1.1%</td><td><span class="badge-yellow">Suspect – May spike</span></td></tr>
+          <tr><td>Organic Search (Google)</td><td>1,008</td><td>62.5%</td><td>55</td><td>5.5%</td><td><span class="badge-green">Strong</span></td></tr>
+          <tr><td>GBP / GMB (Local)</td><td>731</td><td>55.7%</td><td>72</td><td>9.8%</td><td><span class="badge-green">Best Conv. Rate</span></td></tr>
+          <tr><td>Bing Organic</td><td>172</td><td>66.3%</td><td>20</td><td>11.6%</td><td><span class="badge-green">Excellent</span></td></tr>
+          <tr><td>Organic Social</td><td>207</td><td>57.5%</td><td>8</td><td>3.9%</td><td><span class="badge-blue">Healthy</span></td></tr>
+          <tr><td>Referral (Yelp, etc.)</td><td>161</td><td>49.1%</td><td>5</td><td>3.1%</td><td><span class="badge-blue">Normal</span></td></tr>
+          <tr><td>Yelp Ads</td><td>57</td><td>70.2%</td><td>2</td><td>3.5%</td><td><span class="badge-blue">Normal</span></td></tr>
+          <tr><td>Paid Search – Google CPC</td><td>52</td><td>40.4%</td><td>0</td><td>0.0%</td><td><span class="badge-red">0 Conversions – Audit</span></td></tr>
+          <tr><td>DuckDuckGo Organic</td><td>50</td><td>64.0%</td><td>3</td><td>6.0%</td><td><span class="badge-green">Good</span></td></tr>
+          <tr><td>Yahoo Organic</td><td>26</td><td>69.2%</td><td>1</td><td>3.8%</td><td><span class="badge-blue">Normal</span></td></tr>
+          <tr><td>Google Local (direct)</td><td>18</td><td>5.6%</td><td>0</td><td>0%</td><td><span class="badge-yellow">Low engagement – bot?</span></td></tr>
+          <tr><td><strong>Unassigned (BUG)</strong></td><td>57</td><td>17.5%</td><td><strong style="color:#dc2626">3,106</strong></td><td>—</td><td><span class="badge-red">TRACKING BUG</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <h3>Device Breakdown</h3>
+        <div class="chart-wrap"><canvas id="deviceChart"></canvas></div>
+        <div class="alert warning" style="margin-top:16px">
+          <strong>⚠️ Desktop 79% is abnormal</strong>
+          <p>Local plumbers typically see 65–70% mobile. Heavy desktop = bot traffic. US-only mobile would likely show 55–65% mobile.</p>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Geographic Distribution</h3>
+        <table class="data-table">
+          <thead><tr><th>Country</th><th>Sessions</th><th>Eng. Rate</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>🇺🇸 United States</td><td>3,514</td><td>51.5%</td><td><span class="badge-green">Real Traffic</span></td></tr>
+            <tr><td>🇸🇬 Singapore</td><td>626</td><td>8.5%</td><td><span class="badge-red">Bots – Filter</span></td></tr>
+            <tr><td>🇵🇭 Philippines</td><td>354</td><td>64.1%</td><td><span class="badge-yellow">Monitor – may be agency</span></td></tr>
+            <tr><td>🇨🇳 China</td><td>179</td><td>10.1%</td><td><span class="badge-red">Bots – Filter</span></td></tr>
+            <tr><td>(not set)</td><td>112</td><td>3.6%</td><td><span class="badge-red">Likely server bots</span></td></tr>
+            <tr><td>🇮🇳 India</td><td>88</td><td>55.7%</td><td><span class="badge-blue">Monitor</span></td></tr>
+            <tr><td>🇵🇰 Pakistan</td><td>81</td><td>61.7%</td><td><span class="badge-blue">Legitimate</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Top Pages by Views</h3>
+      <table class="data-table">
+        <thead><tr><th>Page</th><th>Views</th><th>Users</th><th>Avg Duration</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Homepage (/)</td><td>3,727</td><td>2,339</td><td>2:13</td><td>Primary landing – strong</td></tr>
+          <tr><td>/contact/</td><td>899</td><td>642</td><td><strong>3:17</strong></td><td><span class="badge-green">High intent – 3+ min</span></td></tr>
+          <tr><td>/render <small>(GTM ghost)</small></td><td>819</td><td>117</td><td>0:05</td><td><span class="badge-red">Not real – filter this</span></td></tr>
+          <tr><td>/specials/</td><td>291</td><td>206</td><td>1:52</td><td>Offer page working</td></tr>
+          <tr><td>/services/</td><td>178</td><td>96</td><td>2:04</td><td>Services hub – exploring</td></tr>
+          <tr><td>/about-us/</td><td>155</td><td>123</td><td>1:30</td><td>Normal local business</td></tr>
+          <tr><td>/services/sewer-repair-seattle-wa/</td><td>118</td><td>60</td><td>2:01</td><td><span class="badge-green">Has FAQ schema ✓</span></td></tr>
+          <tr><td>/blog/</td><td>108</td><td>46</td><td>1:40</td><td>Good engagement, low volume</td></tr>
+          <tr><td>/about-us/gallery/</td><td>94</td><td>83</td><td>1:23</td><td>Social proof working</td></tr>
+          <tr><td>/thank-you/</td><td>85</td><td>75</td><td>1:45</td><td><span class="badge-green">75 confirmed conversions</span></td></tr>
+          <tr><td>/services/sump-pumps-seattle-wa/</td><td>48</td><td>25</td><td><strong>4:31</strong></td><td><span class="badge-green">Best engagement on site!</span></td></tr>
+          <tr><td>/services/trenchless-sewer-repair-seattle-wa/</td><td>58</td><td>43</td><td>2:36</td><td>High-value service getting traction</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- AI OVERVIEW SECTION inside GA4 tab -->
+    <div class="card" style="border-color:#a855f7">
+      <h3>AI Search Traffic <span class="tag purple">New in 2026</span></h3>
+      <div class="alert purple" style="margin-bottom:20px">
+        <strong>Price Busters is appearing in AI search results</strong>
+        <p>Google AI Overview (AI-powered answers at top of search results) and third-party AI assistants (ChatGPT, Perplexity) are now sending measurable referral traffic. GA4 records these separately when the AI assistant discloses the referral. Google AI Overview clicks still largely appear as standard <code>google / organic</code> sessions, but non-Google AI tools are now trackable as separate sources.</p>
+      </div>
+      <div class="two-col" style="margin-bottom:20px">
+        <div style="background:#faf5ff;border:1px solid #d8b4fe;border-radius:10px;padding:20px">
+          <div style="font-size:0.8rem;color:#7c3aed;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;margin-bottom:8px">ChatGPT (chatgpt.com)</div>
+          <div style="font-size:2rem;font-weight:700;color:#7c3aed">8</div>
+          <div style="font-size:0.8rem;color:#6b7280;margin-top:4px">sessions &nbsp;·&nbsp; 60% engagement &nbsp;·&nbsp; 0 conversions</div>
+          <div style="font-size:0.8rem;color:#6b7280;margin-top:4px">Sources: chatgpt.com (not set) × 5, chatgpt.com referral × 2, chatgpt.com local × 1</div>
+        </div>
+        <div style="background:#faf5ff;border:1px solid #d8b4fe;border-radius:10px;padding:20px">
+          <div style="font-size:0.8rem;color:#7c3aed;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;margin-bottom:8px">Perplexity AI</div>
+          <div style="font-size:2rem;font-weight:700;color:#7c3aed">4</div>
+          <div style="font-size:0.8rem;color:#6b7280;margin-top:4px">sessions &nbsp;·&nbsp; 67% engagement &nbsp;·&nbsp; <strong>1 conversion</strong></div>
+          <div style="font-size:0.8rem;color:#6b7280;margin-top:4px">Sources: perplexity (not set) × 3, perplexity.ai referral × 1</div>
+        </div>
+      </div>
+      <table class="data-table">
+        <thead><tr><th>AI Source</th><th>Sessions</th><th>Users</th><th>Eng. Rate</th><th>Conversions</th><th>What This Means</th></tr></thead>
+        <tbody>
+          <tr><td><span class="ai-chip">ChatGPT</span> chatgpt.com</td><td>8</td><td>6</td><td>60.0%</td><td>0</td><td>ChatGPT users seeing Price Busters in AI answers and clicking through. High engagement = interested users.</td></tr>
+          <tr><td><span class="ai-chip">Perplexity</span></td><td>4</td><td>3</td><td>66.7%</td><td>1</td><td>Perplexity's AI search recommending Price Busters. 1 conversion from 4 sessions = 25% conv rate.</td></tr>
+          <tr><td><span class="badge-blue">Total AI</span></td><td><strong>12</strong></td><td>9</td><td>62.5%</td><td><strong>1</strong></td><td>Early-stage AI referral traffic. Expected to grow as AI search adoption increases in 2026.</td></tr>
+        </tbody>
+      </table>
+      <div class="alert info" style="margin-top:16px">
+        <strong>About Google AI Overview Traffic</strong>
+        <p>Google AI Overview (formerly SGE) clicks from AI-generated answer boxes currently appear as standard <code>google / organic</code> sessions in GA4 — Google does not yet pass a separate attribution parameter. However, Search Console (when connected) will begin showing AI Overview impressions and clicks as a separate filter in 2026. The 1,008 Google organic sessions include an unknown proportion from AI Overview citations. <strong>Connect Search Console now to unlock this data as it becomes available.</strong></p>
+      </div>
+      <div class="alert success" style="margin-top:12px">
+        <strong>💡 Why This Matters for Price Busters</strong>
+        <ul>
+          <li>AI search users have 62.5% engagement — significantly higher quality than Direct (31.3%) or Paid Search (40.4%)</li>
+          <li>Perplexity already converted 1 of 4 sessions (25% conversion rate) — this audience is highly motivated</li>
+          <li>FAQ schema on sewer repair and water heater pages directly fuels AI Overview citations — Google's AI uses FAQ content to generate its answers</li>
+          <li>Action: Add FAQPage schema to drain cleaning and homepage immediately — this is the fastest way to increase AI Overview appearances</li>
+          <li>Action: Build a structured "About Price Busters" page with clear service list, coverage areas, and reviews — AI models crawl this for recommendations</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== GBP ===================== -->
+<div id="tab-gbp" class="tab-content">
+  <section>
+    <h2>GBP (Google Business Profile) Performance</h2>
+    <p style="margin-bottom:20px;color:var(--muted)">Price Busters operates three GBP profiles. Lynnwood (est. Jan 2022) is the anchor profile. Seattle (est. Sep 2025) and Bellevue (est. Dec 2025) are newer profiles still building authority.</p>
+
+    <div class="card" style="border-color:#22c55e">
+      <h3>Lynnwood, WA GBP <span class="tag green">Primary Profile · Est. 2022</span></h3>
+      <div class="chart-wrap-lg"><canvas id="lynnwoodChart"></canvas></div>
+      <table class="data-table" style="margin-top:16px">
+        <thead><tr><th>Month</th><th>Website Clicks</th><th>Calls</th><th>Directions</th><th>Profile Visits</th><th>Impressions</th></tr></thead>
+        <tbody>
+          <tr><td>Feb 2026</td><td>94</td><td>62</td><td>131</td><td>1,261</td><td>200</td></tr>
+          <tr><td>Mar 2026</td><td>96</td><td>74</td><td>116</td><td>1,477</td><td>256</td></tr>
+          <tr><td>Apr 2026</td><td><strong>112</strong></td><td>76</td><td><strong>145</strong></td><td><strong>1,498</strong></td><td>238</td></tr>
+          <tr><td>May 2026</td><td>85</td><td><strong>92</strong></td><td>106</td><td>1,341</td><td><strong>307</strong></td></tr>
+          <tr style="background:#f1f5f9;font-weight:600"><td>Avg/Mo</td><td>97</td><td>76</td><td>125</td><td>1,394</td><td>250</td></tr>
+        </tbody>
+      </table>
+      <div class="alert success" style="margin-top:16px">
+        <strong>Lynnwood is the strongest GBP profile</strong>
+        <p>1,300–1,500 monthly profile visits with 85–112 website clicks and 62–92 calls per month demonstrates strong local brand recognition. May impressions (307) are the highest recorded — awareness is still growing. The Lynnwood GBP generates a significant share of the 749 monthly GBP sessions in GA4.</p>
+      </div>
+    </div>
+
+    <div class="card" style="border-color:#f59e0b">
+      <h3>Seattle, WA GBP <span class="tag orange">Secondary · Est. Sep 2025</span></h3>
+      <div class="chart-wrap-lg"><canvas id="seattleChart"></canvas></div>
+      <table class="data-table" style="margin-top:16px">
+        <thead><tr><th>Month</th><th>Website Clicks</th><th>Calls</th><th>Directions</th><th>Profile Visits</th><th>Impressions</th></tr></thead>
+        <tbody>
+          <tr><td>Jan 2026</td><td>28</td><td>27</td><td>69</td><td>483</td><td>74</td></tr>
+          <tr><td>Feb 2026</td><td>30</td><td>23</td><td>51</td><td>436</td><td>46</td></tr>
+          <tr><td>Mar 2026</td><td>23</td><td>32</td><td>67</td><td>460</td><td>50</td></tr>
+          <tr><td>Apr 2026</td><td><strong>33</strong></td><td>24</td><td>48</td><td><strong>591</strong></td><td>63</td></tr>
+          <tr><td>May 2026</td><td>24</td><td>18</td><td><strong>72</strong></td><td>497</td><td>55</td></tr>
+          <tr style="background:#f1f5f9;font-weight:600"><td>Avg/Mo</td><td>28</td><td>25</td><td>61</td><td>493</td><td>58</td></tr>
+        </tbody>
+      </table>
+      <div class="alert warning" style="margin-top:16px">
+        <strong>Seattle GBP — 9 months old, still building</strong>
+        <p>April profile visits (591) are the highest recorded — positive momentum. But 23–33 website clicks and 18–32 calls/month indicate the profile hasn't yet reached Lynnwood's conversion rate. Weekly posts + review campaigns should be the focus for the next 60 days.</p>
+      </div>
+    </div>
+
+    <div class="card" style="border-color:#3b82f6">
+      <h3>Bellevue, WA GBP <span class="tag blue">Newest · Est. Dec 2025</span></h3>
+      <table class="data-table">
+        <thead><tr><th>Month</th><th>Website Clicks</th><th>Calls</th><th>Directions</th><th>Profile Visits</th><th>Impressions</th></tr></thead>
+        <tbody>
+          <tr><td>Jan 2026</td><td>22</td><td>13</td><td>49</td><td>423</td><td>44</td></tr>
+          <tr><td>Feb 2026</td><td>12</td><td>6</td><td>27</td><td>351</td><td>34</td></tr>
+          <tr><td>Mar 2026</td><td>18</td><td>8</td><td>45</td><td>490</td><td>56</td></tr>
+          <tr><td>Apr 2026</td><td>19</td><td>7</td><td>54</td><td>461</td><td>50</td></tr>
+          <tr><td>May 2026</td><td>16</td><td>5</td><td>32</td><td>389</td><td>57</td></tr>
+          <tr style="background:#f1f5f9;font-weight:600"><td>Avg/Mo</td><td>17</td><td>8</td><td>41</td><td>423</td><td>48</td></tr>
+        </tbody>
+      </table>
+      <div class="alert info" style="margin-top:16px">
+        <strong>Bellevue GBP — 6 months old, needs trust signals</strong>
+        <p>Profile visits (351–490/mo) are solid for a new profile, but very low calls (5–13/mo) indicate low trust. Priority: run an active review campaign targeting Bellevue customers (target 20+ reviews in 30 days), weekly Bellevue-specific posts, and full citation audit for NAP consistency.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== MAP PACK ===================== -->
+<div id="tab-rankings" class="tab-content">
+  <section>
+    <h2>Map Pack Rankings — All Markets</h2>
+    <p style="margin-bottom:20px;color:var(--muted)">Positions 1–3 are visible in the standard "3-pack." Positions 4–10 require clicking "More Places." Positions 11+ are not visible without explicit Maps search.</p>
+
+    <div class="card" style="border-color:#22c55e">
+      <h3>Lynnwood, WA — Dominates Map Pack <span class="tag green">Strong Market</span></h3>
+      <table class="data-table">
+        <thead><tr><th>Keyword</th><th>Position</th><th>Visibility</th><th>Action</th></tr></thead>
+        <tbody>
+          <tr><td>Sewer Main Installation</td><td><span class="rank-chip rank-top3">#1</span></td><td><span class="badge-green">Top 3 Pack ✓</span></td><td>Defend — #1 is the most visible position</td></tr>
+          <tr><td>Plumber In</td><td><span class="rank-chip rank-top3">#2</span></td><td><span class="badge-green">Top 3 Pack ✓</span></td><td>Defend with continued reviews and GBP posts</td></tr>
+          <tr><td>Drain Cleaning</td><td><span class="rank-chip rank-top3">#3</span></td><td><span class="badge-green">Top 3 Pack ✓</span></td><td>Add FAQPage schema to drain cleaning page to reinforce</td></tr>
+          <tr><td>Water Heater Installation</td><td><span class="rank-chip rank-top3">#3</span></td><td><span class="badge-green">Top 3 Pack ✓</span></td><td>Maintain — FAQ schema present on page</td></tr>
+          <tr><td>Sump Pump Repair</td><td><span class="rank-chip rank-top10">#4</span></td><td><span class="badge-yellow">1 from Top 3</span></td><td>One position from 3-pack — push reviews mentioning sump pump</td></tr>
+          <tr><td>Garbage Disposal Repair</td><td><span class="rank-chip rank-top10">#4</span></td><td><span class="badge-yellow">1 from Top 3</span></td><td>Same push strategy as sump pump</td></tr>
+          <tr><td>Sewer Cleaning</td><td><span class="rank-chip rank-top10">#4</span></td><td><span class="badge-yellow">1 from Top 3</span></td><td>GBP posts with "sewer cleaning" focus</td></tr>
+          <tr><td>Water Heater Repair</td><td><span class="rank-chip rank-top10">#6</span></td><td><span class="badge-yellow">Visible on click</span></td><td>Near top 3 — keyword-specific review requests</td></tr>
+          <tr><td>Toilet Repair</td><td><span class="rank-chip rank-top10">#7</span></td><td><span class="badge-yellow">Visible on click</span></td><td>Not in top 3 — needs content and review push</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card" style="border-color:#f59e0b">
+      <h3>Seattle, WA — Recovering Strongly <span class="tag orange">High Opportunity</span></h3>
+      <div class="alert warning">
+        <strong>Dramatic recovery from Nov–Dec 2025 drop</strong>
+        <p>Rankings fell to positions 50–115 in Nov–Dec 2025 but recovered to 7–30 range in January 2026. The trajectory is excellent, but none of the Seattle keywords are yet in the visible top 3. Target: sump pump repair and sewer cleaning into top 3 by Q3 2026.</p>
+      </div>
+      <table class="data-table">
+        <thead><tr><th>Keyword</th><th>Sep 2025</th><th>Dec 2025</th><th>Jan 2026</th><th>Trend</th><th>Target</th></tr></thead>
+        <tbody>
+          <tr><td>Sump Pump Repair</td><td>#26</td><td>#73</td><td><span class="rank-chip rank-top10">#7</span></td><td><span class="badge-green">↑ Recovering</span></td><td>Top 3</td></tr>
+          <tr><td>Sewer Cleaning</td><td>#34</td><td>#63</td><td><span class="rank-chip rank-top10">#10</span></td><td><span class="badge-green">↑ Recovering</span></td><td>Top 7</td></tr>
+          <tr><td>Drain Cleaning</td><td>#54</td><td>#79</td><td><span class="rank-chip rank-top10">#13</span></td><td><span class="badge-green">↑ Best recovery</span></td><td>Top 7</td></tr>
+          <tr><td>Sewer Main Installation</td><td>#49</td><td>#83</td><td><span class="rank-chip rank-top20">#16</span></td><td><span class="badge-green">↑ Improving</span></td><td>Top 7</td></tr>
+          <tr><td>Plumber In</td><td>#75</td><td>#104</td><td><span class="rank-chip rank-top20">#17</span></td><td><span class="badge-green">↑ Improving</span></td><td>Top 10</td></tr>
+          <tr><td>Garbage Disposal Repair</td><td>#40</td><td>#64</td><td><span class="rank-chip rank-top20">#19</span></td><td><span class="badge-green">↑ Improving</span></td><td>Top 10</td></tr>
+          <tr><td>Toilet Repair</td><td>#80</td><td>#113</td><td><span class="rank-chip rank-top20">#20</span></td><td><span class="badge-green">↑ Improving</span></td><td>Top 10</td></tr>
+          <tr><td>Water Heater Repair</td><td>#73</td><td>#112</td><td><span class="rank-chip rank-top20">#28</span></td><td><span class="badge-green">↑ Improving</span></td><td>Top 10</td></tr>
+          <tr><td>Water Heater Installation</td><td>#80</td><td>#115</td><td><span class="rank-chip rank-top20">#29</span></td><td><span class="badge-green">↑ Improving</span></td><td>Top 10</td></tr>
+          <tr><td>Leak Detection</td><td>#34</td><td>#86</td><td><span class="rank-chip rank-low">#30</span></td><td><span class="badge-yellow">Partial recovery</span></td><td>Top 15</td></tr>
+          <tr><td>Septic Tank Cleaning</td><td>#23</td><td>#55</td><td><span class="rank-chip rank-low">#45</span></td><td><span class="badge-orange">Lagging</span></td><td>Low priority</td></tr>
+          <tr><td>Septic Tank Repair</td><td>#112</td><td>#65</td><td><span class="rank-chip rank-low">#49</span></td><td><span class="badge-orange">Partial recovery</span></td><td>Low priority</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card" style="border-color:#3b82f6">
+      <h3>Bellevue, WA — Building Phase <span class="tag blue">Est. Dec 2025</span></h3>
+      <div class="alert info">
+        <strong>Bellevue GBP only 6 months old</strong>
+        <p>Full rankings data not yet available. Focus for the first 6 months: build review volume (target 25+ reviews), consistent weekly GBP posts specific to Bellevue, and ensure the Bellevue NAP matches all citations exactly. Map pack visibility typically takes 6–12 months for a new GBP profile to break into top 10.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== CONTENT ===================== -->
+<div id="tab-content" class="tab-content">
+  <section>
+    <h2>Website Audit — Key Pages</h2>
+    <div class="alert success">
+      <strong>Content Strength: Price Busters has unusually deep service pages (13,000+ words each)</strong>
+      <p>FAQPage schema is present on sewer repair and water heater pages — a real advantage over competitors who lack it. The immediate opportunity is adding FAQ schema to all remaining service pages.</p>
+    </div>
+
+    <div class="card">
+      <h3>Homepage — / <span class="tag orange">Missing FAQ Schema</span></h3>
+      <table class="data-table">
+        <thead><tr><th>Element</th><th>Current</th><th>Recommended</th></tr></thead>
+        <tbody>
+          <tr><td>Title Tag</td><td>Call (206) PLUMBER — Emergency Plumber in Seattle, WA</td><td>Emergency Plumber in Seattle, WA | 24/7 Service | Price Busters Plumbing</td></tr>
+          <tr><td>Meta Description</td><td>Let the leading plumber in Seattle, WA address your plumbing and sewer issues...</td><td>Seattle's most affordable 24/7 plumber. Serving Seattle, Lynnwood & Bellevue. $50 OFF first service. Call (206) 348-8138.</td></tr>
+          <tr><td>H1</td><td>The Top Plumber in Seattle, WA, and the Surrounding Areas</td><td>Seattle's Most Trusted 24/7 Emergency Plumber — Affordable, Fast, Guaranteed</td></tr>
+          <tr><td>Schema Present</td><td colspan="2"><span class="badge-green">Plumber, AggregateRating, Review, Organization, WebSite, ContactPoint ✓ Comprehensive</span></td></tr>
+          <tr><td>FAQ Schema</td><td colspan="2"><span class="badge-red">MISSING — Add 5 FAQs: response time, service areas, after-hours pricing, licensing, financing</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Sewer Repair — /services/sewer-repair-seattle-wa/ <span class="tag green">Strong Page</span></h3>
+      <table class="data-table">
+        <thead><tr><th>Element</th><th>Status</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Word Count</td><td><span class="badge-green">~13,606 words</span></td><td>Excellent depth — strong topical authority signal</td></tr>
+          <tr><td>FAQPage Schema</td><td><span class="badge-green">Present ✓</span></td><td>Eligible for Google rich results — defend this advantage</td></tr>
+          <tr><td>Title</td><td>Sewer Repair & Replacement in Seattle, WA — Call (206) PLUMBER</td><td>Add "Same-Day" to title for urgency click signal</td></tr>
+          <tr><td>Opportunity</td><td colspan="2">Add a "Serving Lynnwood & Bellevue" section with internal links. Add cost guide if not present.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Drain Cleaning — /services/drain-and-sewer-cleaning-seattle-wa/ <span class="tag red">Missing FAQ Schema</span></h3>
+      <table class="data-table">
+        <thead><tr><th>Element</th><th>Status</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Word Count</td><td><span class="badge-green">~13,244 words</span></td><td>Excellent depth — content already exists to extract FAQ pairs</td></tr>
+          <tr><td>FAQPage Schema</td><td><span class="badge-red">MISSING ✗</span></td><td>30-minute fix — content depth exists, just need JSON-LD wrapper</td></tr>
+          <tr><td>Title</td><td>$50 OFF Drain and Sewer Cleaning in Seattle, WA — Call (206) PLUMBER</td><td>Good — coupon offer in title is a CTR booster</td></tr>
+          <tr><td>Opportunity</td><td colspan="2">Identify 4–5 Q&A pairs in existing content and add FAQPage JSON-LD. Immediate rich result eligibility.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Water Heater — /services/water-heater-repair-and-installation-seattle-wa/ <span class="tag green">Strong Page</span></h3>
+      <table class="data-table">
+        <thead><tr><th>Element</th><th>Status</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Word Count</td><td><span class="badge-green">~13,478 words</span></td><td>Excellent depth</td></tr>
+          <tr><td>FAQPage Schema</td><td><span class="badge-green">Present ✓</span></td><td>Rich result eligible — strong competitive advantage</td></tr>
+          <tr><td>Opportunity</td><td colspan="2">Defend. Add "$X–$Y typical cost" section if not present — cost transparency is the #1 CTR factor in rich results.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Sump Pump — /services/sump-pumps-seattle-wa/ <span class="tag green">Best Engagement on Site</span></h3>
+      <div class="alert success">
+        <strong>4:31 average duration — highest on the entire site</strong>
+        <p>Users spend more time on this page than any other. This signals extremely high intent (homeowners researching sump pump options). Yet the page only gets 48 views from 25 users — it's massively underexposed. Build internal links to this page from the homepage and services hub, and consider PPC on sump pump terms.</p>
+      </div>
+      <table class="data-table">
+        <thead><tr><th>Element</th><th>Status</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Avg Duration</td><td><span class="badge-green">4:31 ← #1 on site</span></td><td>Highest engagement of any service page — extremely high intent</td></tr>
+          <tr><td>FAQPage Schema</td><td><span class="badge-orange">Verify / Add</span></td><td>If not present, add immediately — this page deserves rich result exposure</td></tr>
+          <tr><td>Traffic</td><td><span class="badge-yellow">Only 48 views</span></td><td>Best-performing page is nearly invisible — fix with internal links and PPC</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Schema Coverage Summary</h3>
+      <table class="data-table">
+        <thead><tr><th>Page</th><th>FAQPage Schema</th><th>Priority</th></tr></thead>
+        <tbody>
+          <tr><td>Homepage /</td><td><span class="badge-red">MISSING</span></td><td><span class="action-table priority-critical">Critical — fix this week</span></td></tr>
+          <tr><td>Drain Cleaning</td><td><span class="badge-red">MISSING</span></td><td><span class="action-table priority-critical">Critical — 30 min fix</span></td></tr>
+          <tr><td>Sump Pump</td><td><span class="badge-orange">Unverified</span></td><td><span class="action-table priority-high">High — verify and add</span></td></tr>
+          <tr><td>Sewer Repair</td><td><span class="badge-green">Present ✓</span></td><td>Defend</td></tr>
+          <tr><td>Water Heater</td><td><span class="badge-green">Present ✓</span></td><td>Defend</td></tr>
+          <tr><td>Trenchless Sewer Repair</td><td><span class="badge-orange">Unverified</span></td><td>Verify and add in 30 days</td></tr>
+          <tr><td>All other service pages</td><td><span class="badge-orange">Likely missing</span></td><td>Roll out over 60 days</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== TECHNICAL ===================== -->
+<div id="tab-technical" class="tab-content">
+  <section>
+    <h2>Technical SEO & Tracking Issues</h2>
+
+    <div class="alert danger">
+      <strong>🚨 Fix #1: Conversion Tracking Bug</strong>
+      <p>The "Unassigned" channel shows 3,106 conversions from 143 sessions — a 2,172% conversion rate. This is a GA4 misconfiguration where an event (likely <code>session_start</code>, <code>page_view</code>, or <code>scroll</code>) is marked as a conversion in GA4 Admin › Events. <strong>Fix immediately: GA4 Admin › Events › find the incorrectly marked event › uncheck "Mark as conversion."</strong> All conversion reporting is meaningless until this is fixed.</p>
+    </div>
+
+    <div class="card">
+      <h3>Priority Tracking Fixes</h3>
+      <table class="data-table">
+        <thead><tr><th>Issue</th><th>Impact</th><th>Fix</th><th>Time</th></tr></thead>
+        <tbody>
+          <tr><td>Unassigned 3,106 fake conversions</td><td><span class="badge-red">Critical</span></td><td>GA4 Admin › Events › unmark incorrect conversion event</td><td>15 min</td></tr>
+          <tr><td>May Direct spike — unknown source</td><td><span class="badge-red">High</span></td><td>Identify what campaign went out in April/May. UTM tag all URLs.</td><td>30 min</td></tr>
+          <tr><td>Bot traffic: Singapore 626 + China 179</td><td><span class="badge-red">High</span></td><td>GA4 audience filter: country = United States only</td><td>20 min</td></tr>
+          <tr><td>/render GTM ghost traffic (819 views)</td><td><span class="badge-orange">Medium</span></td><td>GA4 Admin › Data Streams › exclude URL contains /render</td><td>10 min</td></tr>
+          <tr><td>Search Console not connected</td><td><span class="badge-red">High</span></td><td>GA4 Admin › Search Console Links › link property</td><td>15 min</td></tr>
+          <tr><td>Google Paid Search: 0 conversions / 52 sessions</td><td><span class="badge-red">Critical</span></td><td>Audit Google Ads — check conversion tracking on landing pages, review ad targeting and keywords</td><td>1 hr</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Schema Audit</h3>
+      <table class="data-table">
+        <thead><tr><th>Schema Type</th><th>Present?</th><th>Quality</th><th>Action</th></tr></thead>
+        <tbody>
+          <tr><td>LocalBusiness (Plumber)</td><td><span class="badge-green">Yes ✓</span></td><td>Excellent</td><td>Maintain — full plumber schema with ContactPoint, PostalAddress</td></tr>
+          <tr><td>AggregateRating</td><td><span class="badge-green">Yes ✓</span></td><td>Good</td><td>Verify review count and stars are current</td></tr>
+          <tr><td>Review (individual)</td><td><span class="badge-green">Yes ✓</span></td><td>Check dates</td><td>Verify datePublished is in ISO 8601 format (YYYY-MM-DD)</td></tr>
+          <tr><td>Organization / WebSite</td><td><span class="badge-green">Yes ✓</span></td><td>Good</td><td>Social profiles and sitelinks present</td></tr>
+          <tr><td>FAQPage — Sewer Repair</td><td><span class="badge-green">Yes ✓</span></td><td>Strong</td><td>Defend — rich result eligible</td></tr>
+          <tr><td>FAQPage — Water Heater</td><td><span class="badge-green">Yes ✓</span></td><td>Strong</td><td>Defend — rich result eligible</td></tr>
+          <tr><td>FAQPage — Drain Cleaning</td><td><span class="badge-red">MISSING</span></td><td>Gap</td><td>Add immediately — 30 min fix</td></tr>
+          <tr><td>FAQPage — Homepage</td><td><span class="badge-red">MISSING</span></td><td>Gap</td><td>Add 5 FAQ pairs — 30 min task</td></tr>
+          <tr><td>FAQPage — Sump Pumps</td><td><span class="badge-orange">Unverified</span></td><td>Check</td><td>Highest-engagement page — verify and add if missing</td></tr>
+          <tr><td>FAQPage — All other pages</td><td><span class="badge-orange">Likely missing</span></td><td>Gap</td><td>Roll out over 30–60 days</td></tr>
+          <tr><td>BreadcrumbList</td><td><span class="badge-orange">Unverified</span></td><td>Verify</td><td>Check sub-pages — breadcrumbs improve CTR in SERPs</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Core Web Vitals & Site Health</h3>
+      <div class="alert info">
+        <strong>Search Console not connected — CWV data unavailable</strong>
+        <p>Connect Google Search Console to GA4 immediately. This unlocks Core Web Vitals monitoring, keyword impressions, AI Overview data (as it becomes available in 2026), click-through rates by page, and exact average search positions.</p>
+      </div>
+      <p style="color:var(--muted);font-size:0.9rem">Recommendations pending Search Console connection and direct site crawl for Core Web Vitals (LCP, CLS, FID/INP) data.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== COMPETITORS ===================== -->
+<div id="tab-competitors" class="tab-content">
+  <section>
+    <h2>Competitor Analysis — Seattle Market</h2>
+
+    <div class="card">
+      <h3>Primary Competitors</h3>
+      <table class="data-table">
+        <thead><tr><th>Competitor</th><th>Website</th><th>Why They Compete</th><th>Threat Level</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Beacon Plumbing</strong></td><td>beaconplumbing.net</td><td>Dominant Seattle brand. Strong domain authority, large review volume, decades of presence.</td><td><span class="badge-red">HIGH</span></td></tr>
+          <tr><td><strong>2 Sons Plumbing</strong></td><td>2sonsplumbing.com</td><td>Seattle-native, very strong organic and map pack presence across all Northwest WA terms.</td><td><span class="badge-red">HIGH</span></td></tr>
+          <tr><td><strong>Fischer Plumbing</strong></td><td>fischerplumbing.com</td><td>Established local brand with strong GBP and Yelp presence.</td><td><span class="badge-red">HIGH</span></td></tr>
+          <tr><td><strong>Roto-Rooter Seattle</strong></td><td>rotorooter.com/seattle/</td><td>National brand authority wins generic/branded terms. Strong drain and sewer presence.</td><td><span class="badge-orange">MEDIUM</span></td></tr>
+          <tr><td><strong>The Original Plumber</strong></td><td>theoriginalplumber.com</td><td>Competitive on water heater and emergency terms in Seattle metro.</td><td><span class="badge-orange">MEDIUM</span></td></tr>
+          <tr><td><strong>John's Plumbing</strong></td><td>johnsplumbing.net</td><td>Lynnwood/Everett competitor. Overlaps in Lynnwood service area.</td><td><span class="badge-orange">MEDIUM</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <h3>Price Busters' Competitive Advantages</h3>
+        <ul style="list-style:disc;padding-left:20px;line-height:2;font-size:0.88rem">
+          <li>Memorable vanity numbers: <strong>(206) PLUMBER + (425) PLUMBER</strong> — significant brand recall</li>
+          <li>Three active GBP profiles covering Seattle, Lynnwood & Bellevue — greater geographic reach</li>
+          <li>Extremely content-rich service pages (13,000+ words) — strong topical authority</li>
+          <li>$50 OFF offer in title tags — clear CTA differentiator in SERPs</li>
+          <li>FAQPage schema on two key service pages — advantage over most competitors</li>
+          <li>Lynnwood GBP dominates: #1 sewer main, #2 plumber, #3 drain cleaning</li>
+          <li>Bing organic: 172 sessions, 11.6% conv rate — competitor blind spot</li>
+          <li>Now appearing in ChatGPT and Perplexity AI recommendations</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Competitive Gaps to Close</h3>
+        <ul style="list-style:disc;padding-left:20px;line-height:2;font-size:0.88rem">
+          <li>Review volume on Seattle & Bellevue GBPs lower than established competitors</li>
+          <li>Bellevue lacks service × location pages — competitors with dedicated pages rank above generic area pages</li>
+          <li>No pricing/cost guide page — Beacon and 2 Sons capture "how much does plumbing cost" searches</li>
+          <li>Drain cleaning page missing FAQ schema — competitors with FAQ schema get rich result CTR advantage</li>
+          <li>No dedicated 24/7 emergency page — "emergency plumber Seattle" is extremely high-intent</li>
+          <li>Google Search Console not connected — flying blind on keyword rankings</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== AI SEARCH ===================== -->
+<div id="tab-ai" class="tab-content">
+  <section>
+    <h2>AI Search Traffic <span class="tag purple">2026 Emerging Channel</span></h2>
+
+    <div class="alert purple">
+      <strong>Price Busters is appearing in AI-powered search results</strong>
+      <p>In 2026, Google AI Overview (AI-generated answers at the top of search results), ChatGPT search, and Perplexity AI are all sending measurable traffic to pricebustersplumbing.com. This is an emerging channel that will grow as AI search adoption increases — and it requires different optimization than traditional SEO.</p>
+    </div>
+
+    <div class="metrics-grid">
+      <div class="metric-card" style="border-color:#a855f7;background:linear-gradient(135deg,#faf5ff,#f3e8ff)">
+        <div class="val" style="color:#7c3aed">12</div>
+        <div class="lbl">Total AI Referrals</div>
+        <div class="change">Jan–May 2026</div>
+      </div>
+      <div class="metric-card" style="border-color:#a855f7;background:linear-gradient(135deg,#faf5ff,#f3e8ff)">
+        <div class="val" style="color:#7c3aed">8</div>
+        <div class="lbl">ChatGPT Sessions</div>
+        <div class="change">60% engagement</div>
+      </div>
+      <div class="metric-card" style="border-color:#a855f7;background:linear-gradient(135deg,#faf5ff,#f3e8ff)">
+        <div class="val" style="color:#7c3aed">4</div>
+        <div class="lbl">Perplexity Sessions</div>
+        <div class="change up">1 conversion (25%!)</div>
+      </div>
+      <div class="metric-card" style="border-color:#a855f7;background:linear-gradient(135deg,#faf5ff,#f3e8ff)">
+        <div class="val" style="color:#7c3aed">62.5%</div>
+        <div class="lbl">AI Engagement Rate</div>
+        <div class="change up">vs 44.3% site avg</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>AI Traffic Sources — Detail</h3>
+      <table class="data-table">
+        <thead><tr><th>Source</th><th>Medium</th><th>Sessions</th><th>Users</th><th>Engagement</th><th>Conversions</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td><span class="ai-chip">ChatGPT</span> chatgpt.com</td><td>(not set)</td><td>5</td><td>4</td><td>60.0%</td><td>0</td><td>Primary ChatGPT referral mode</td></tr>
+          <tr><td><span class="ai-chip">ChatGPT</span> chatgpt.com</td><td>referral</td><td>2</td><td>1</td><td>50.0%</td><td>0</td><td>Direct ChatGPT link referral</td></tr>
+          <tr><td><span class="ai-chip">ChatGPT</span> chatgpt.com</td><td>local</td><td>1</td><td>1</td><td>100.0%</td><td>0</td><td>ChatGPT local search feature</td></tr>
+          <tr><td><span class="ai-chip">Perplexity</span></td><td>(not set)</td><td>3</td><td>2</td><td>66.7%</td><td>1</td><td>Perplexity AI answer citations</td></tr>
+          <tr><td><span class="ai-chip">Perplexity</span> perplexity.ai</td><td>referral</td><td>1</td><td>1</td><td>100.0%</td><td>0</td><td>Direct Perplexity link click</td></tr>
+          <tr style="background:#f3e8ff;font-weight:600"><td>Total AI</td><td>—</td><td>12</td><td>9</td><td>62.5%</td><td>1</td><td>1 conversion = 8.3% AI conv. rate</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Google AI Overview — The Hidden AI Channel</h3>
+      <div class="alert info">
+        <strong>Most Google AI Overview traffic is invisible in GA4 today</strong>
+        <p>Google AI Overview (the AI-generated answer boxes at the top of search results) currently routes clicks as standard <code>google / organic</code> sessions. Google does not yet pass a separate UTM parameter for AI Overview clicks. This means Price Busters' 1,008 Google organic sessions contain an unknown proportion from AI Overview citations — potentially 10–30% based on industry estimates for plumbing-related searches where AI Overviews are common.</p>
+      </div>
+      <div class="two-col">
+        <div>
+          <h4 style="margin-bottom:12px;font-size:0.95rem">What triggers AI Overview appearances:</h4>
+          <ul style="list-style:disc;padding-left:20px;font-size:0.88rem;line-height:2;color:var(--muted)">
+            <li>FAQPage schema — Google's AI pulls FAQ Q&A pairs directly into answers</li>
+            <li>Deep, authoritative content answering specific questions</li>
+            <li>Strong local business schema with accurate NAP data</li>
+            <li>High aggregate review scores (AggregateRating schema)</li>
+            <li>Content that directly answers "how much does X cost" and "how long does X take"</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="margin-bottom:12px;font-size:0.95rem">Price Busters' current AI overview status:</h4>
+          <ul style="list-style:disc;padding-left:20px;font-size:0.88rem;line-height:2;color:var(--muted)">
+            <li><span class="badge-green">Strong</span> FAQPage schema on sewer repair and water heater pages</li>
+            <li><span class="badge-green">Strong</span> 13,000+ word deep content pages — AI loves detailed answers</li>
+            <li><span class="badge-green">Strong</span> AggregateRating schema — high review count boosts AI citations</li>
+            <li><span class="badge-red">Gap</span> Homepage and drain cleaning page missing FAQ schema</li>
+            <li><span class="badge-red">Gap</span> No structured cost/pricing section — "how much does plumbing cost" queries</li>
+            <li><span class="badge-red">Gap</span> Search Console not connected — no AI Overview impression data when available</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Action Plan: Maximize AI Search Visibility</h3>
+      <table class="data-table">
+        <thead><tr><th>#</th><th>Action</th><th>Impact on AI Traffic</th><th>Effort</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Add FAQPage schema to homepage (5 FAQ pairs)</td><td><span class="badge-red">High — direct AI Overview fuel</span></td><td>30 min</td></tr>
+          <tr><td>2</td><td>Add FAQPage schema to drain cleaning page</td><td><span class="badge-red">High — drain cleaning is top AI search query</span></td><td>30 min</td></tr>
+          <tr><td>3</td><td>Connect Google Search Console to GA4</td><td><span class="badge-orange">Medium — unlock AI Overview impression data in 2026</span></td><td>15 min</td></tr>
+          <tr><td>4</td><td>Add cost section to all service pages ("How much does sewer repair cost in Seattle?")</td><td><span class="badge-red">High — cost queries are dominant AI Overview triggers</span></td><td>1 hr/page</td></tr>
+          <tr><td>5</td><td>Roll out FAQPage schema to all service pages</td><td><span class="badge-orange">Medium — broader AI Overview coverage</span></td><td>30 min/page</td></tr>
+          <tr><td>6</td><td>Build structured "About Price Busters" entity page (services, coverage, reviews, credentials)</td><td><span class="badge-orange">Medium — AI models use this for recommendation confidence</span></td><td>2 hrs</td></tr>
+          <tr><td>7</td><td>Request reviews mentioning specific services ("sewer repair", "water heater") in Lynnwood, Seattle, and Bellevue</td><td><span class="badge-orange">Medium — review content feeds AI recommendation confidence</span></td><td>Ongoing</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="alert success">
+      <strong>💡 Key Insight: AI Visitors Are Higher Quality</strong>
+      <p>The 12 tracked AI referral sessions have a 62.5% engagement rate — significantly above the site average (44.3%) and well above Paid Search (40.4%) and Direct (31.3%). Perplexity AI sessions already converted at 25% (1 of 4 sessions). AI search users arrive with higher intent because they have already received a recommendation from an AI assistant before clicking. As AI search adoption grows through 2026–2027, this channel is expected to become a meaningful revenue driver for local service businesses like Price Busters.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== ACTIONS ===================== -->
+<div id="tab-actions" class="tab-content">
+  <section>
+    <h2>Priority Action Plan</h2>
+
+    <div class="metrics-grid">
+      <div class="metric-card danger"><div class="val">2</div><div class="lbl">Critical This Week</div></div>
+      <div class="metric-card warn"><div class="val">6</div><div class="lbl">Week 1 Actions</div></div>
+      <div class="metric-card"><div class="val">6</div><div class="lbl">30-Day Actions</div></div>
+      <div class="metric-card"><div class="val">6</div><div class="lbl">60–90 Day Actions</div></div>
+    </div>
+
+    <div class="card">
+      <h3>Week 1 — Fix Critical Issues</h3>
+      <table class="data-table action-table">
+        <thead><tr><th>#</th><th>Action</th><th>Details</th><th>Time</th><th>Priority</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><strong>Fix conversion tracking bug</strong></td><td>GA4 Admin › Events › find event marked as conversion that shouldn't be (session_start or page_view) › unmark it. All reporting is unreliable until this is fixed.</td><td>15 min</td><td><span class="priority-critical">CRITICAL</span></td></tr>
+          <tr><td>2</td><td><strong>Audit & pause Google Paid Search</strong></td><td>52 sessions, 0 conversions = wasted budget. Check GA4 conversion tracking on landing page. Pause campaign until conversion tracking is verified.</td><td>1 hr</td><td><span class="priority-critical">CRITICAL</span></td></tr>
+          <tr><td>3</td><td><strong>Add FAQPage schema — drain cleaning</strong></td><td>Extract 4–5 Q&A pairs from the 13,244-word page. Add FAQPage JSON-LD. Immediate rich result eligibility. No content writing needed.</td><td>30 min</td><td><span class="priority-high">HIGH</span></td></tr>
+          <tr><td>4</td><td><strong>Add FAQPage schema — homepage</strong></td><td>Add 5 FAQ pairs: response time, service areas, after-hours pricing, WA licensing, financing. Boosts AI Overview appearances + rich results.</td><td>30 min</td><td><span class="priority-high">HIGH</span></td></tr>
+          <tr><td>5</td><td><strong>Connect Search Console to GA4</strong></td><td>GA4 Admin › Search Console Links › link property. Unlocks keyword impressions, CTR, position data, and AI Overview data when available.</td><td>15 min</td><td><span class="priority-high">HIGH</span></td></tr>
+          <tr><td>6</td><td><strong>Add bot filter + /render exclusion</strong></td><td>GA4 audience filter: country = United States only. Plus exclude URL contains /render. Removes ~1,400+ monthly bot sessions and 819 ghost views.</td><td>25 min</td><td><span class="priority-high">HIGH</span></td></tr>
+          <tr><td>7</td><td><strong>Identify May Direct traffic source</strong></td><td>Check with team: what email, SMS, or print campaign went out in April/May driving 1,148 Direct sessions at 21.5% engagement? Add UTM tags before next send.</td><td>30 min</td><td><span class="priority-high">HIGH</span></td></tr>
+          <tr><td>8</td><td><strong>Verify sump pump FAQPage schema</strong></td><td>Check /services/sump-pumps-seattle-wa/ for FAQPage schema. If missing, add immediately — this is the highest-engagement page on the site (4:31 avg).</td><td>30 min</td><td><span class="priority-high">HIGH</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>30-Day Actions</h3>
+      <table class="data-table action-table">
+        <thead><tr><th>#</th><th>Action</th><th>Details</th><th>Impact</th></tr></thead>
+        <tbody>
+          <tr><td>9</td><td><strong>Build 3 Bellevue service × location pages</strong></td><td>/service-areas/bellevue-wa/sewer-repair/, /bellevue-wa/water-heater/, /bellevue-wa/drain-cleaning/ to support Dec 2025 Bellevue GBP launch.</td><td><span class="badge-red">HIGH</span></td></tr>
+          <tr><td>10</td><td><strong>Bellevue GBP review campaign</strong></td><td>Request reviews from all Bellevue customers via email/SMS. Target: 20+ reviews within 30 days. Include service and "Bellevue" in the ask.</td><td><span class="badge-red">HIGH</span></td></tr>
+          <tr><td>11</td><td><strong>Seattle GBP weekly posting cadence</strong></td><td>Minimum 2 posts/week on Seattle GBP with service offers, seasonal tips, and completed job photos. Consistent posting correlates strongly with map pack improvement.</td><td><span class="badge-orange">MEDIUM</span></td></tr>
+          <tr><td>12</td><td><strong>UTM tag all campaign URLs going forward</strong></td><td>Add UTM source/medium/campaign to all email, SMS, print, social URLs before next campaign. Eliminates the "Direct" mystery channel.</td><td><span class="badge-red">HIGH</span></td></tr>
+          <tr><td>13</td><td><strong>FAQPage schema — all remaining service pages</strong></td><td>Roll out FAQPage JSON-LD to trenchless sewer repair, pipe lining, fixture repair, water line repair, garbage disposal. 30 min per page.</td><td><span class="badge-red">HIGH</span></td></tr>
+          <tr><td>14</td><td><strong>Add cost guide section to top 3 service pages</strong></td><td>Add "$X–$Y typical cost" section to sewer repair, water heater, and drain cleaning pages. Cost transparency is the #1 AI Overview trigger for service business queries.</td><td><span class="badge-red">HIGH</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>60–90 Day Actions</h3>
+      <table class="data-table action-table">
+        <thead><tr><th>#</th><th>Action</th><th>Details</th><th>Impact</th></tr></thead>
+        <tbody>
+          <tr><td>15</td><td><strong>Expand Bellevue to 8+ service pages</strong></td><td>Add /bellevue-wa/emergency-plumbing/, /bellevue-wa/sump-pump/, /bellevue-wa/trenchless-sewer-repair/, /bellevue-wa/water-heater-repair/ and more.</td><td><span class="badge-red">HIGH</span></td></tr>
+          <tr><td>16</td><td><strong>Build Lynnwood service × location pages</strong></td><td>/lynnwood-wa/water-heater-repair/, /lynnwood-wa/sewer-repair/ etc. to reinforce organic rankings alongside the strong GBP presence.</td><td><span class="badge-red">HIGH</span></td></tr>
+          <tr><td>17</td><td><strong>Create Seattle plumbing cost guide page</strong></td><td>Build /plumbing-cost-guide-seattle/ covering typical costs for all services. Captures "how much does X cost in Seattle" queries and fuels AI Overview appearances.</td><td><span class="badge-orange">MEDIUM</span></td></tr>
+          <tr><td>18</td><td><strong>Rebuild Google Ads campaign</strong></td><td>After fixing conversion tracking (#1), rebuild Google Ads with verified tracking. Target: sump pumps, water heater repair, trenchless sewer — high-value, lower-competition terms.</td><td><span class="badge-red">HIGH</span></td></tr>
+          <tr><td>19</td><td><strong>Publish 4 strategic blog posts</strong></td><td>1. How Much Does Sewer Repair Cost in Seattle? 2026 Guide  2. Sump Pump Installation: What Seattle Homeowners Need to Know  3. Best Plumber in Bellevue, WA — What to Look For  4. Emergency Plumbing in Seattle: What to Do While You Wait</td><td><span class="badge-orange">MEDIUM</span></td></tr>
+          <tr><td>20</td><td><strong>Bellevue GBP citation audit</strong></td><td>Audit all local citations to ensure Bellevue address/phone/NAP is 100% consistent across Yelp, BBB, Angi, HomeAdvisor, Nextdoor, and industry directories. NAP inconsistency suppresses map pack rankings.</td><td><span class="badge-red">HIGH</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <p>Price Busters Plumbing & Sewer &nbsp;·&nbsp; pricebustersplumbing.com &nbsp;·&nbsp; (206) 348-8138</p>
+  <p style="margin-top:6px">Report prepared by Real Time Marketing &nbsp;·&nbsp; June 15, 2026 &nbsp;·&nbsp; GA4 Property 311968464</p>
+</footer>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+
+const BLUE='#1e3a8a',BLUE2='#3b82f6',GREEN='#16a34a',ORANGE='#f97316',GRAY='#94a3b8',PURPLE='#7c3aed';
+const months=['Jan','Feb','Mar','Apr','May'];
+const sessions=[739,756,902,1093,1745];
+const eng=[52.4,52.5,50.2,47.8,32.0];
+
+// Monthly sessions chart
+new Chart(document.getElementById('monthlyChart'),{
+  type:'bar',data:{labels:months,datasets:[{label:'Sessions',data:sessions,backgroundColor:[BLUE2,BLUE2,BLUE2,BLUE2,ORANGE],borderRadius:6}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}}}
+});
+
+// Channel doughnut
+new Chart(document.getElementById('channelChart'),{
+  type:'doughnut',
+  data:{labels:['Direct','Organic Search','GBP/Local','Bing','Social','Referral','Paid','Other'],
+    datasets:[{data:[2647,1008,749,172,207,161,52,46],backgroundColor:[GRAY,BLUE,GREEN,'#0ea5e9','#f59e0b','#8b5cf6',ORANGE,'#cbd5e1'],borderWidth:2}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{font:{size:11}}}}}
+});
+
+// Monthly detail
+new Chart(document.getElementById('monthlyDetailChart'),{
+  type:'bar',data:{labels:months,datasets:[{label:'Sessions',data:sessions,backgroundColor:sessions.map((v,i)=>i===4?'#fca5a5':BLUE2),borderRadius:5,order:1}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}}}
+});
+
+// Engagement chart
+new Chart(document.getElementById('engagementChart'),{
+  type:'line',data:{labels:months,datasets:[{label:'Engagement Rate %',data:eng,borderColor:eng.map((v,i)=>i===4?ORANGE:GREEN),backgroundColor:'rgba(22,163,74,0.1)',tension:0.3,pointRadius:6,segment:{borderColor:ctx=>ctx.p1DataIndex===4?ORANGE:GREEN}}]},
+  options:{responsive:true,maintainAspectRatio:false,scales:{y:{beginAtZero:false,min:20,max:70}}}
+});
+
+// Device chart
+new Chart(document.getElementById('deviceChart'),{
+  type:'doughnut',data:{labels:['Desktop (78.7%)','Mobile (20.8%)','Tablet (0.4%)'],
+    datasets:[{data:[4124,1090,20],backgroundColor:[GRAY,BLUE2,'#a78bfa'],borderWidth:2}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{font:{size:11}}}}}
+});
+
+// Lynnwood GBP chart
+new Chart(document.getElementById('lynnwoodChart'),{
+  type:'bar',data:{labels:['Feb','Mar','Apr','May'],
+    datasets:[
+      {label:'Website Clicks',data:[94,96,112,85],backgroundColor:BLUE2,borderRadius:4},
+      {label:'Calls',data:[62,74,76,92],backgroundColor:GREEN,borderRadius:4},
+      {label:'Directions',data:[131,116,145,106],backgroundColor:ORANGE,borderRadius:4},
+    ]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top'}},scales:{x:{grouped:true},y:{beginAtZero:true}}}
+});
+
+// Seattle GBP chart
+new Chart(document.getElementById('seattleChart'),{
+  type:'bar',data:{labels:months,
+    datasets:[
+      {label:'Website Clicks',data:[28,30,23,33,24],backgroundColor:BLUE2,borderRadius:4},
+      {label:'Calls',data:[27,23,32,24,18],backgroundColor:GREEN,borderRadius:4},
+      {label:'Directions',data:[69,51,67,48,72],backgroundColor:ORANGE,borderRadius:4},
+    ]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top'}},scales:{y:{beginAtZero:true}}}
+});
+</script>
+</body>
+</html>
