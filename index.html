@@ -112,6 +112,7 @@
   <button class="tab-btn" onclick="showTab('gsc')">Search Console</button>
   <button class="tab-btn" onclick="showTab('deepaudit')">Deep Audit — All Pages</button>
   <button class="tab-btn" onclick="showTab('blogcal')">Blog Content Calendar</button>
+  <button class="tab-btn" onclick="showTab('contentrec')">Content Recommendations</button>
 </nav>
 
 <!-- ===================== SUMMARY ===================== -->
@@ -2130,5 +2131,270 @@ new Chart(document.getElementById('seattleChart'),{
   options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'top'}},scales:{y:{beginAtZero:true}}}
 });
 </script>
+
+<!-- ===================== CONTENT RECOMMENDATIONS ===================== -->
+<div id="tab-contentrec" class="tab-content">
+<section>
+<h2>Content Recommendations — All Key Pages</h2>
+<p style="color:#64748b;margin-bottom:1.5rem;">Every recommendation below is sourced from four data layers: <strong>Google Search Console</strong> keyword gaps, <strong>GA4</strong> engagement signals, <strong>local map pack rankings</strong>, and <strong>Google Core Update</strong> alignment (March 2024 + August 2024 Helpful Content updates).</p>
+
+<div style="background:#fef9c3;border-left:4px solid #d97706;padding:1rem 1.2rem;margin-bottom:1.5rem;border-radius:0 6px 6px 0;">
+<strong style="color:#92400e;">⚠ Google Core Update Context:</strong> The March 2024 + August 2024 updates specifically targeted thin, templated local service pages and AI-generated content without first-hand expertise signals. Price Busters has ~96 location×service sub-pages that match this profile. Without content upgrades these pages risk further ranking suppression in the next core update.
+</div>
+
+<!-- PRIORITY KEY -->
+<h3 style="margin-top:1.5rem;">Priority Scoring Key</h3>
+<table style="width:100%;border-collapse:collapse;margin-bottom:2rem;font-size:0.88rem;">
+<thead><tr style="background:#e2e8f0;"><th style="padding:8px 12px;text-align:left;">Priority</th><th style="padding:8px 12px;text-align:left;">Criteria</th></tr></thead>
+<tbody>
+<tr style="background:#fff;"><td style="padding:8px 12px;"><span style="background:#fee2e2;color:#b91c1c;padding:2px 8px;border-radius:12px;font-weight:700;font-size:0.8rem;">P1 Critical</span></td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Actively losing clicks to hack / penalty / zero content. Fix within 2 weeks.</td></tr>
+<tr style="background:#f8fafc;"><td style="padding:8px 12px;"><span style="background:#ffedd5;color:#9a3412;padding:2px 8px;border-radius:12px;font-weight:700;font-size:0.8rem;">P2 High</span></td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Page ranks positions 11–30 with 1,000+ monthly impressions. Quick content win.</td></tr>
+<tr style="background:#fff;"><td style="padding:8px 12px;"><span style="background:#fef9c3;color:#854d0e;padding:2px 8px;border-radius:12px;font-weight:700;font-size:0.8rem;">P3 Medium</span></td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Page ranks positions 31–60 with steady impressions. Content gap to close over 60–90 days.</td></tr>
+<tr style="background:#f8fafc;"><td style="padding:8px 12px;"><span style="background:#f1f5f9;color:#475569;padding:2px 8px;border-radius:12px;font-weight:700;font-size:0.8rem;">P4 Low</span></td><td style="padding:8px 12px;">Low impression volume or already ranking well. Address after higher priorities.</td></tr>
+</tbody></table>
+
+<!-- PAGE CARDS -->
+<div style="display:grid;gap:1.5rem;">
+
+<!-- HOMEPAGE -->
+<div style="border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
+<div style="background:#1e3a8a;color:#fff;padding:0.8rem 1.2rem;display:flex;justify-content:space-between;align-items:center;">
+<strong>Homepage — pricebustersplumbing.com/</strong>
+<span style="background:#fbbf24;color:#1e3a8a;padding:2px 10px;border-radius:12px;font-size:0.8rem;font-weight:700;">P2 High</span>
+</div>
+<table style="width:100%;border-collapse:collapse;font-size:0.86rem;">
+<thead><tr style="background:#f1f5f9;"><th style="padding:8px 12px;text-align:left;width:120px;">Signal</th><th style="padding:8px 12px;text-align:left;width:38%;">Finding</th><th style="padding:8px 12px;text-align:left;">Recommendation</th></tr></thead>
+<tbody>
+<tr style="background:#fff;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;color:#1d4ed8;">GSC</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Pos 34.1 for "plumber near me" (3,022 impr). Low 0.56% CTR despite 101K impressions.</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Rewrite H1 to lead with "Emergency Plumber in Seattle, WA." Add city + service in first 50 words of body copy.</td></tr>
+<tr style="background:#f8fafc;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;color:#16a34a;">GA4</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">564 organic clicks but only 44% engagement rate. High bounce from mobile (~60%).</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Add a sticky mobile CTA bar (phone + "Book Online") above the fold. Current above-fold content is too text-heavy for mobile visitors.</td></tr>
+<tr style="background:#fff;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;color:#ea580c;">Rankings</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">GBP #1 in Lynnwood, #2 in Seattle — but organic homepage only pos 34 for "plumber near me."</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Embed a live Google Review widget. Add a "Serving Seattle, Lynnwood, Bellevue &amp; 20+ Cities" geo-targeted section with internal links to each location page.</td></tr>
+<tr style="background:#f8fafc;"><td style="padding:8px 12px;font-weight:600;color:#9333ea;">Core Update</td><td style="padding:8px 12px;">Homepage schema has "Invalid date" in datePublished and "Lynwood" (single-n) misspelling.</td><td style="padding:8px 12px;">Fix both schema errors in AIOSEO/RankMath. Add FAQPage schema (5 questions: cost, same-day, service area, guarantee, financing).</td></tr>
+</tbody></table>
+<div style="background:#f8fafc;padding:0.6rem 1.2rem;font-size:0.82rem;color:#64748b;border-top:1px solid #e2e8f0;">Est. effort: 3 hours &nbsp;|&nbsp; Expected impact: +15–25% CTR improvement, potential pos gain of 8–12 spots for "plumber near me"</div>
+</div>
+
+<!-- EMERGENCY PAGE -->
+<div style="border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
+<div style="background:#dc2626;color:#fff;padding:0.8rem 1.2rem;display:flex;justify-content:space-between;align-items:center;">
+<strong>Emergency / 24-Hour Plumber Page</strong>
+<span style="background:#fff;color:#dc2626;padding:2px 10px;border-radius:12px;font-size:0.8rem;font-weight:700;">P1 Critical</span>
+</div>
+<table style="width:100%;border-collapse:collapse;font-size:0.86rem;">
+<thead><tr style="background:#f1f5f9;"><th style="padding:8px 12px;text-align:left;width:120px;">Signal</th><th style="padding:8px 12px;text-align:left;width:38%;">Finding</th><th style="padding:8px 12px;text-align:left;">Recommendation</th></tr></thead>
+<tbody>
+<tr style="background:#fff;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;color:#1d4ed8;">GSC</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">"24/7 plumber" pos 12.6 (1,552 impr) — only 3 spots from page 1. "24/7 plumber near me" pos 14.5 (1,210 impr).</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Highest-leverage single edit on the site. Add a "What to Do While Waiting" section (shut off main, contain leak, document for insurance). Directly answers voice-search intent.</td></tr>
+<tr style="background:#f8fafc;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;color:#16a34a;">GA4</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Emergency page receives GBP click-throughs but exits quickly — content doesn't answer the question.</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Add real response time data: "Average arrival time 47 min in Seattle, 52 min in Lynnwood." Specific, verifiable claims are E-E-A-T signals required for local service pages.</td></tr>
+<tr style="background:#fff;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;color:#ea580c;">Rankings</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Map pack #1 for "emergency plumber lynnwood" but organic pos 12–15.</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Add a city-specific response time table: Seattle, Lynnwood, Bellevue, Bothell, Mukilteo. Creates unique, locally verifiable content Google cannot dismiss.</td></tr>
+<tr style="background:#f8fafc;"><td style="padding:8px 12px;font-weight:600;color:#9333ea;">Core Update</td><td style="padding:8px 12px;">Thin emergency pages (under 500 words) were specifically cited in the March 2024 update guidance.</td><td style="padding:8px 12px;">Target 1,200+ words. Add FAQPage schema: "Do you charge extra for after-hours calls?" "How fast can you arrive?" "What is a plumbing emergency?" "Do you work weekends?" "Is there a diagnostic fee?"</td></tr>
+</tbody></table>
+<div style="background:#fff0f0;padding:0.6rem 1.2rem;font-size:0.82rem;color:#b91c1c;border-top:1px solid #fecaca;">Est. effort: 4 hours &nbsp;|&nbsp; Expected impact: Move from pos 12–14 → top 5, adding est. 80–120 clicks/month</div>
+</div>
+
+<!-- WATER HEATER -->
+<div style="border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
+<div style="background:#1e3a8a;color:#fff;padding:0.8rem 1.2rem;display:flex;justify-content:space-between;align-items:center;">
+<strong>Water Heater Repair — /services/water-heater-repair/</strong>
+<span style="background:#fbbf24;color:#1e3a8a;padding:2px 10px;border-radius:12px;font-size:0.8rem;font-weight:700;">P2 High</span>
+</div>
+<table style="width:100%;border-collapse:collapse;font-size:0.86rem;">
+<thead><tr style="background:#f1f5f9;"><th style="padding:8px 12px;text-align:left;width:120px;">Signal</th><th style="padding:8px 12px;text-align:left;width:38%;">Finding</th><th style="padding:8px 12px;text-align:left;">Recommendation</th></tr></thead>
+<tbody>
+<tr style="background:#fff;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;color:#1d4ed8;">GSC</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">"water heater repair" pos 16.5 (2,727 impr) — very close to page 1.</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Add a "2026 Water Heater Repair Cost Guide for Seattle, WA" with real price ranges by unit type (tank 40-gal, 50-gal, tankless, hybrid). Specific pricing is the #1 factor for page-1 results on this keyword.</td></tr>
+<tr style="background:#f8fafc;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;color:#16a34a;">GA4</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">775 words. Engagement time below site average — users scan and leave.</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Add a visual "Repair vs. Replace" decision table with a 5-question checklist (age, leak location, repair cost vs. 50% rule, energy efficiency). Decision tools retain users 2–3× longer.</td></tr>
+<tr style="background:#fff;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;color:#ea580c;">Rankings</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">GBP photos show water heater jobs — but the service page doesn't reference those real jobs.</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Add 2–3 real job case studies: "Lynnwood homeowner, 12-year-old 40-gal tank, repair quote $640, replacement $1,450 — we recommended replacement, here's why." E-E-A-T requires demonstrated real experience.</td></tr>
+<tr style="background:#f8fafc;"><td style="padding:8px 12px;font-weight:600;color:#9333ea;">Core Update</td><td style="padding:8px 12px;">Title 78 chars, meta 163 chars — both over limit. "$50 OFF" prefix cannibalising title character budget.</td><td style="padding:8px 12px;">New title: "Water Heater Repair Seattle, WA | Same-Day Service | Price Busters" (67 chars). New meta: "Water heater broken? Price Busters fixes or replaces in one visit. Serving Seattle, Lynnwood &amp; Bellevue." (152 chars).</td></tr>
+</tbody></table>
+<div style="background:#f8fafc;padding:0.6rem 1.2rem;font-size:0.82rem;color:#64748b;border-top:1px solid #e2e8f0;">Est. effort: 3 hours &nbsp;|&nbsp; Expected impact: +5–8 position gain, est. 60–90 additional clicks/month from pos 16 → 8</div>
+</div>
+
+<!-- SEPTIC REPAIR -->
+<div style="border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
+<div style="background:#1e3a8a;color:#fff;padding:0.8rem 1.2rem;display:flex;justify-content:space-between;align-items:center;">
+<strong>Septic Repair — /services/septic-repair/</strong>
+<span style="background:#fbbf24;color:#1e3a8a;padding:2px 10px;border-radius:12px;font-size:0.8rem;font-weight:700;">P2 High</span>
+</div>
+<table style="width:100%;border-collapse:collapse;font-size:0.86rem;">
+<thead><tr style="background:#f1f5f9;"><th style="padding:8px 12px;text-align:left;width:120px;">Signal</th><th style="padding:8px 12px;text-align:left;width:38%;">Finding</th><th style="padding:8px 12px;text-align:left;">Recommendation</th></tr></thead>
+<tbody>
+<tr style="background:#fff;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;color:#1d4ed8;">GSC</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">"septic repair near me" pos 16.5 (2,122 impr). "24/7 septic service near me" pos 8.5.</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Add "Septic Repair vs. Replacement Cost Guide" (400 words) and "Signs Your Septic System Is Failing" checklist (8 items). Both are top follow-up searches after the main query.</td></tr>
+<tr style="background:#f8fafc;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;color:#16a34a;">GA4</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Septic pages get low traffic relative to impression volume — low CTR signals title/meta mismatch.</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Title leads with "$50 OFF." Users searching "septic repair near me" need urgency + local trust, not a coupon. New title: "Septic Repair Near Seattle &amp; Lynnwood, WA | Emergency Service Available."</td></tr>
+<tr style="background:#fff;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;color:#ea580c;">Rankings</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">No dedicated septic GBP service category. Septic terms rank organically but GBP doesn't amplify.</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Add "Septic Tank Services" as a primary GBP service category. Upload 3–5 geo-tagged septic job photos. Reinforces the organic page with GBP authority signals.</td></tr>
+<tr style="background:#f8fafc;"><td style="padding:8px 12px;font-weight:600;color:#9333ea;">Core Update</td><td style="padding:8px 12px;">801 words but zero FAQPage schema. Competing pages on page 1 all have FAQ rich results.</td><td style="padding:8px 12px;">Add FAQPage schema: "How much does septic repair cost near Seattle?" "How long does it take?" "Do I need a permit in King County?" "Can you repair in the rain?" "How do I know if my septic is backed up?"</td></tr>
+</tbody></table>
+<div style="background:#f8fafc;padding:0.6rem 1.2rem;font-size:0.82rem;color:#64748b;border-top:1px solid #e2e8f0;">Est. effort: 2.5 hours &nbsp;|&nbsp; Expected impact: Move from pos 16 → top 8, est. +40–60 clicks/month</div>
+</div>
+
+<!-- DRAIN CLEANING -->
+<div style="border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
+<div style="background:#1e3a8a;color:#fff;padding:0.8rem 1.2rem;display:flex;justify-content:space-between;align-items:center;">
+<strong>Drain Cleaning — /services/drain-and-sewer-cleaning/</strong>
+<span style="background:#fbbf24;color:#1e3a8a;padding:2px 10px;border-radius:12px;font-size:0.8rem;font-weight:700;">P3 Medium</span>
+</div>
+<table style="width:100%;border-collapse:collapse;font-size:0.86rem;">
+<thead><tr style="background:#f1f5f9;"><th style="padding:8px 12px;text-align:left;width:120px;">Signal</th><th style="padding:8px 12px;text-align:left;width:38%;">Finding</th><th style="padding:8px 12px;text-align:left;">Recommendation</th></tr></thead>
+<tbody>
+<tr style="background:#fff;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;color:#1d4ed8;">GSC</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">"drain cleaning service" pos 61.0 (2,295 impr). "drain cleaning seattle" pos 46.6 (1,111 impr). Both on pages 5–6.</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Full content rewrite needed — not a tweak. Target 1,500+ words. Add hydro jetting vs. snaking comparison, cost by drain type, video of a real job.</td></tr>
+<tr style="background:#f8fafc;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;color:#16a34a;">GA4</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Drain cleaning is the #1 searched service nationally but drives minimal GA4 traffic — confirms page not ranking.</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Add hyper-local section: "Drain Cleaning in Seattle vs. Older Suburbs — Why Lynnwood Homes Have Different Root Issues." Specific local content gives Google a reason to rank this page over national competitors.</td></tr>
+<tr style="background:#fff;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;color:#ea580c;">Rankings</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Map pack appears for "drain cleaning seattle" — but organic at pos 46 means ~60% of searchers who scroll past the map never see Price Busters.</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Create 3 location sub-pages: /drain-cleaning-seattle/, /drain-cleaning-lynnwood/, /drain-cleaning-bellevue/. Each 800+ unique words. Support with 4–6 blog posts from the Section 11 calendar.</td></tr>
+<tr style="background:#f8fafc;"><td style="padding:8px 12px;font-weight:600;color:#9333ea;">Core Update</td><td style="padding:8px 12px;">Title 68 chars (just over limit). No schema. No FAQ.</td><td style="padding:8px 12px;">Add FAQPage schema. Add "How Often Should You Clean Drains in the Pacific Northwest?" — Seattle's 38" annual rainfall and clay soils create unique drainage conditions. Location-specific content is exactly what 2024 updates rewarded.</td></tr>
+</tbody></table>
+<div style="background:#f8fafc;padding:0.6rem 1.2rem;font-size:0.82rem;color:#64748b;border-top:1px solid #e2e8f0;">Est. effort: 6–8 hours (full rewrite) &nbsp;|&nbsp; Expected impact: 3–6 month timeline, pos 46–61 → pos 15–25</div>
+</div>
+
+<!-- SPECIALS PAGE -->
+<div style="border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
+<div style="background:#dc2626;color:#fff;padding:0.8rem 1.2rem;display:flex;justify-content:space-between;align-items:center;">
+<strong>Specials / Pricing Page — /specials/</strong>
+<span style="background:#fff;color:#dc2626;padding:2px 10px;border-radius:12px;font-size:0.8rem;font-weight:700;">P1 Critical — Hack Cleanup First</span>
+</div>
+<table style="width:100%;border-collapse:collapse;font-size:0.86rem;">
+<thead><tr style="background:#f1f5f9;"><th style="padding:8px 12px;text-align:left;width:120px;">Signal</th><th style="padding:8px 12px;text-align:left;width:38%;">Finding</th><th style="padding:8px 12px;text-align:left;">Recommendation</th></tr></thead>
+<tbody>
+<tr style="background:#fff;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;color:#1d4ed8;">GSC</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">172,362 impressions — highest on the site — but 99.9% from Indonesian gambling spam. "$99 drain cleaning near me" (pos 44.9) should be owned by this page.</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Hack cleanup first. After cleanup: rebuild as a proper pricing page with real service rates. Add pricing tables: drain cleaning ($99), water heater diagnostics ($0 with repair), sewer camera ($199).</td></tr>
+<tr style="background:#f8fafc;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;color:#16a34a;">GA4</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">After hack removal, page will drop in impressions but gain real engagement.</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Actual pricing pages convert at 2–3× higher rates than "call for a quote" pages. Structure around specific numbers: "$99 Drain Cleaning — Here's Exactly What's Included."</td></tr>
+<tr style="background:#fff;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;color:#ea580c;">Rankings</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Pricing-intent keywords ($49, $69, $99 drain cleaning) all ranking pos 40–50 with significant impression volume.</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Structure the page around pricing keywords: H2 headers per service, "What's Included" breakdown, FAQ: "Is there a service call fee?" "Do you charge extra after 5pm?" "What does the $99 drain cleaning include?"</td></tr>
+<tr style="background:#f8fafc;"><td style="padding:8px 12px;font-weight:600;color:#9333ea;">Core Update</td><td style="padding:8px 12px;">Pricing pages with specific numbers dramatically outperform vague promo pages post-2024.</td><td style="padding:8px 12px;">Add LocalBusiness schema with priceRange. Add FAQPage schema (5 pricing questions). Add Offer schema for the $99 drain cleaning special — eligible for multiple rich result types simultaneously.</td></tr>
+</tbody></table>
+<div style="background:#fff0f0;padding:0.6rem 1.2rem;font-size:0.82rem;color:#b91c1c;border-top:1px solid #fecaca;">Est. effort: 5 hours post-cleanup &nbsp;|&nbsp; Expected impact: 150–200 real clicks/month for pricing-intent queries after hack removal + rebuild</div>
+</div>
+
+<!-- LOCATION PAGES GRID -->
+<h3 style="margin-top:2rem;">Location Hub Pages — Individual Recommendations</h3>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+
+<div style="border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
+<div style="background:#0f766e;color:#fff;padding:0.7rem 1rem;display:flex;justify-content:space-between;align-items:center;font-size:0.9rem;">
+<strong>Bothell — /service-areas/bothell-wa/</strong>
+<span style="background:#fbbf24;color:#1e3a8a;padding:1px 8px;border-radius:12px;font-size:0.78rem;font-weight:700;">P2 High</span>
+</div>
+<div style="padding:0.9rem;font-size:0.84rem;background:#fff;">
+<p><strong style="color:#1d4ed8;">GSC:</strong> Pos 35.2, 27,983 impressions — highest impression count of any location page, CTR only 0.37%. Biggest organic opportunity among all location pages.</p>
+<p><strong style="color:#16a34a;">GA4:</strong> 103 sessions, 665 words — below the 800-word competitive threshold.</p>
+<p><strong style="color:#ea580c;">Rankings:</strong> No Bothell GBP. Add Bothell-specific photos + Google Posts to Lynnwood GBP. Request 3 Bothell customer reviews.</p>
+<p><strong style="color:#9333ea;">Action:</strong> Expand to 1,000+ words with Bothell-specific plumbing detail (Canyon Park housing stock, Sammamish River soil, mature tree roots). Add LocalBusiness + FAQPage schema.</p>
+<div style="background:#f0fdf4;padding:0.5rem 0.8rem;border-radius:4px;color:#15803d;font-size:0.8rem;margin-top:0.5rem;">Est. 80–120 new clicks/month at pos 15–20</div>
+</div>
+</div>
+
+<div style="border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
+<div style="background:#0f766e;color:#fff;padding:0.7rem 1rem;display:flex;justify-content:space-between;align-items:center;font-size:0.9rem;">
+<strong>Mukilteo — /service-areas/mukilteo-wa/</strong>
+<span style="background:#fbbf24;color:#1e3a8a;padding:1px 8px;border-radius:12px;font-size:0.78rem;font-weight:700;">P2 High</span>
+</div>
+<div style="padding:0.9rem;font-size:0.84rem;background:#fff;">
+<p><strong style="color:#1d4ed8;">GSC:</strong> Pos 27.0, 19,699 impressions. Second-highest impression count among location pages.</p>
+<p><strong style="color:#16a34a;">GA4:</strong> 84 sessions, 679 words — borderline thin.</p>
+<p><strong style="color:#ea580c;">Rankings:</strong> GBP covers from Lynnwood. A strong content upgrade can earn a 2nd map pack appearance for Mukilteo-specific searches.</p>
+<p><strong style="color:#9333ea;">Action:</strong> Add "Mukilteo Unique Challenges" section (waterfront properties, craftsman homes, boat/dock plumbing). Add LocalBusiness schema with Mukilteo areaServed. Map "24/7 septic pumping" keyword (pos 27) to this page.</p>
+<div style="background:#f0fdf4;padding:0.5rem 0.8rem;border-radius:4px;color:#15803d;font-size:0.8rem;margin-top:0.5rem;">Est. 50–80 new clicks/month at pos 12–18</div>
+</div>
+</div>
+
+<div style="border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
+<div style="background:#0f766e;color:#fff;padding:0.7rem 1rem;display:flex;justify-content:space-between;align-items:center;font-size:0.9rem;">
+<strong>Lynnwood — /service-areas/lynnwood-wa/</strong>
+<span style="background:#fbbf24;color:#1e3a8a;padding:1px 8px;border-radius:12px;font-size:0.78rem;font-weight:700;">P2 High</span>
+</div>
+<div style="padding:0.9rem;font-size:0.84rem;background:#fff;">
+<p><strong style="color:#1d4ed8;">GSC:</strong> "plumber in lynnwood" pos 35.9 despite GBP #1 ranking. Users who scroll past the map pack don't see Price Busters at pos 35.</p>
+<p><strong style="color:#16a34a;">GA4:</strong> 46 organic sessions — very low for the strongest GBP market.</p>
+<p><strong style="color:#ea580c;">Rankings:</strong> GBP authority not transferring to organic page. Embed Lynnwood GBP widget. Add tech photo + "40–60 Lynnwood jobs/month" stat.</p>
+<p><strong style="color:#9333ea;">Action:</strong> Fix title (79 chars → 59 chars, remove "$50 OFF" prefix). Add city-specific E-E-A-T content. Add LocalBusiness schema + FAQPage.</p>
+<div style="background:#f0fdf4;padding:0.5rem 0.8rem;border-radius:4px;color:#15803d;font-size:0.8rem;margin-top:0.5rem;">Move from pos 36 → 12–20 over 60 days</div>
+</div>
+</div>
+
+<div style="border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
+<div style="background:#7c3aed;color:#fff;padding:0.7rem 1rem;display:flex;justify-content:space-between;align-items:center;font-size:0.9rem;">
+<strong>Bellevue — /service-areas/bellevue-wa/</strong>
+<span style="background:#e0e7ff;color:#4338ca;padding:1px 8px;border-radius:12px;font-size:0.78rem;font-weight:700;">P3 Medium</span>
+</div>
+<div style="padding:0.9rem;font-size:0.84rem;background:#fff;">
+<p><strong style="color:#1d4ed8;">GSC:</strong> "plumber in bellevue" pos 63.8 (229 impr) — page 6. High-value Eastside market with higher avg job value.</p>
+<p><strong style="color:#16a34a;">GA4:</strong> Very low organic traffic confirming near-zero ranking visibility.</p>
+<p><strong style="color:#ea580c;">Rankings:</strong> No Bellevue GBP. Creating a service-area GBP for Bellevue is the single highest-leverage Bellevue action.</p>
+<p><strong style="color:#9333ea;">Action:</strong> Create second GBP (service-area business). Rebuild page to 1,200+ words with Eastside-specific content (Medina/Clyde Hill homes, downtown condo plumbing, Eastside building codes).</p>
+<div style="background:#f5f3ff;padding:0.5rem 0.8rem;border-radius:4px;color:#6d28d9;font-size:0.8rem;margin-top:0.5rem;">3–4 month timeline, pos 63 → 25–35</div>
+</div>
+</div>
+
+</div><!-- end location grid -->
+
+<!-- SUB-PAGES PATTERN -->
+<h3 style="margin-top:2rem;">Location × Service Sub-Pages (~96 Pages) — Pattern Fix</h3>
+<div style="background:#fff7ed;border-left:4px solid #ea580c;padding:1rem 1.2rem;margin-bottom:1rem;border-radius:0 6px 6px 0;">
+<strong style="color:#9a3412;">⚠ Template Audit Required:</strong> All ~96 sub-pages share the title template: "$50 OFF | 24/7 [Service] in [City], WA | Price Busters — [Phone]" generating titles averaging 80–90 chars (25+ chars over Google's display limit). Fix the WordPress title template globally before editing individual pages.
+</div>
+<table style="width:100%;border-collapse:collapse;font-size:0.86rem;margin-bottom:2rem;">
+<thead><tr style="background:#e2e8f0;"><th style="padding:8px 12px;text-align:left;">Sub-Page Type</th><th style="padding:8px 12px;text-align:left;">Issue</th><th style="padding:8px 12px;text-align:left;">Recommended Addition</th><th style="padding:8px 12px;text-align:left;width:90px;">Priority</th></tr></thead>
+<tbody>
+<tr style="background:#fff;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;">[City] Drain Cleaning (~13 pages)</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Avg 380 words, no schema</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">City-specific drain issue paragraph (soil type, tree species, housing stock age). FAQPage with 4 cost + availability questions. Addresses "drain cleaning [city]" keywords all ranking pos 40–65.</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;"><span style="background:#ffedd5;color:#9a3412;padding:2px 7px;border-radius:12px;font-size:0.78rem;font-weight:700;">P2</span></td></tr>
+<tr style="background:#f8fafc;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;">[City] Water Heater (~13 pages)</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Avg 400 words, title over limit</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">"2026 Water Heater Costs in [City]" pricing table. 8 pages map to "water heater repair" cluster at pos 16.5 — pushing past page 1 means 8× more city-level traffic.</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;"><span style="background:#ffedd5;color:#9a3412;padding:2px 7px;border-radius:12px;font-size:0.78rem;font-weight:700;">P2</span></td></tr>
+<tr style="background:#fff;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;">[City] Emergency / 24-Hour (~13 pages)</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Title 75–90 chars, extremely thin</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Add real "average response time to [City]" stat. Add licensing callout specific to city (King County license #, Snohomish County license #). Emergency pages are YMYL — Google requires demonstrated authority.</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;"><span style="background:#fee2e2;color:#b91c1c;padding:2px 7px;border-radius:12px;font-size:0.78rem;font-weight:700;">P1</span></td></tr>
+<tr style="background:#f8fafc;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;">[City] Septic (~8 pages)</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Avg 420 words, no LocalBusiness schema</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Permit/inspection info per county (King, Snohomish). Add "How Septic Works in [City]" explainer. Septic has very low national competition — local specificity wins.</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;"><span style="background:#ffedd5;color:#9a3412;padding:2px 7px;border-radius:12px;font-size:0.78rem;font-weight:700;">P2</span></td></tr>
+<tr style="background:#fff;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;">[City] Sewer Repair (~13 pages)</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Avg 450 words, no FAQ schema</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Add trenchless vs. traditional comparison specific to city's right-of-way permit costs. Sewer repair jobs average $4K–12K — high-value intent pages deserve the most content investment.</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;"><span style="background:#fef9c3;color:#854d0e;padding:2px 7px;border-radius:12px;font-size:0.78rem;font-weight:700;">P3</span></td></tr>
+<tr style="background:#f8fafc;"><td style="padding:8px 12px;font-weight:600;">[City] Pipe Lining (~8 pages)</td><td style="padding:8px 12px;">Avg 380 words, no schema</td><td style="padding:8px 12px;">Add "Is Your [City] Home a Candidate for Pipe Lining?" checklist (age, pipe material, tree proximity). Pipe lining has lower competition and high commercial intent.</td><td style="padding:8px 12px;"><span style="background:#fef9c3;color:#854d0e;padding:2px 7px;border-radius:12px;font-size:0.78rem;font-weight:700;">P3</span></td></tr>
+</tbody></table>
+
+<!-- BLOG / REVIEWS / CONTACT -->
+<h3>Blog, Reviews &amp; Contact — Supporting Pages</h3>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-bottom:2rem;">
+
+<div style="border:1px solid #e2e8f0;border-radius:8px;padding:1rem;background:#fff;">
+<div style="font-weight:700;color:#1e3a8a;margin-bottom:0.5rem;">/blog/ <span style="background:#dcfce7;color:#15803d;padding:1px 7px;border-radius:12px;font-size:0.78rem;margin-left:6px;">P2 High</span></div>
+<p style="font-size:0.83rem;"><strong style="color:#1d4ed8;">GSC:</strong> 259 clicks, pos 7.3 — best organic page on site. Blog is seen by Google as an authoritative hub.</p>
+<p style="font-size:0.83rem;"><strong style="color:#16a34a;">GA4:</strong> Blog visitors have highest engagement rate of any traffic source.</p>
+<p style="font-size:0.83rem;"><strong style="color:#9333ea;">Action:</strong> Add GA4 scroll-depth tracking. Add author byline on every post: "Written by [Technician Name], Licensed Plumber, WA License #[X]." This is the single most impactful E-E-A-T signal for a local service blog.</p>
+</div>
+
+<div style="border:1px solid #e2e8f0;border-radius:8px;padding:1rem;background:#fff;">
+<div style="font-weight:700;color:#1e3a8a;margin-bottom:0.5rem;">/about-us/testimonials/ <span style="background:#fef9c3;color:#854d0e;padding:1px 7px;border-radius:12px;font-size:0.78rem;margin-left:6px;">P3 Med</span></div>
+<p style="font-size:0.83rem;"><strong style="color:#1d4ed8;">GSC:</strong> Pos 6.5, only 1.7% CTR — should be 5–8% at this position. Title/meta mismatch.</p>
+<p style="font-size:0.83rem;"><strong style="color:#ea580c;">Rankings:</strong> No AggregateRating schema — Google can't show star ratings in SERP. Adding schema increases CTR by avg 35%.</p>
+<p style="font-size:0.83rem;"><strong style="color:#9333ea;">Action:</strong> Add AggregateRating + Review schema. Rewrite meta: "Read real reviews from Seattle &amp; Lynnwood plumbing customers. 500+ 5-star reviews." Add dynamic GBP review feed via WP plugin.</p>
+</div>
+
+<div style="border:1px solid #e2e8f0;border-radius:8px;padding:1rem;background:#fff;">
+<div style="font-weight:700;color:#1e3a8a;margin-bottom:0.5rem;">/contact/ <span style="background:#fef9c3;color:#854d0e;padding:1px 7px;border-radius:12px;font-size:0.78rem;margin-left:6px;">P3 Med</span></div>
+<p style="font-size:0.83rem;"><strong style="color:#1d4ed8;">GSC:</strong> 90 clicks, pos 28.7, 15,740 impressions — ranking for commercial queries but thin page (~200 words).</p>
+<p style="font-size:0.83rem;"><strong style="color:#16a34a;">GA4:</strong> Phone click tracking not set up — can't measure contact page conversion contribution.</p>
+<p style="font-size:0.83rem;"><strong style="color:#9333ea;">Action:</strong> Add GA4 phone click + form submit events. Add service area list, hours (with "24/7 Emergency Available" above fold), avg callback time stat ("We call back in 15 min"), BBB badge, license + insurance statement.</p>
+</div>
+
+</div>
+
+<!-- IMPLEMENTATION ROADMAP -->
+<h3>Implementation Roadmap</h3>
+<table style="width:100%;border-collapse:collapse;font-size:0.86rem;margin-bottom:2rem;">
+<thead><tr style="background:#1e3a8a;color:#fff;"><th style="padding:10px 12px;text-align:left;">Phase</th><th style="padding:10px 12px;text-align:left;">Timeline</th><th style="padding:10px 12px;text-align:left;">Actions</th><th style="padding:10px 12px;text-align:left;">Expected Outcome</th></tr></thead>
+<tbody>
+<tr style="background:#fee2e2;"><td style="padding:9px 12px;border-bottom:1px solid #e2e8f0;font-weight:700;">Phase 1: Hack Cleanup + Critical Fixes</td><td style="padding:9px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;color:#b91c1c;">Weeks 1–2</td><td style="padding:9px 12px;border-bottom:1px solid #e2e8f0;">Remove gambling spam from /sitemap/, /gallery/, /specials/. Fix homepage schema errors. Fix all title tags via WordPress template. Submit clean sitemap.</td><td style="padding:9px 12px;border-bottom:1px solid #e2e8f0;">Stop ranking loss. Remove Google manual action risk.</td></tr>
+<tr style="background:#fff7ed;"><td style="padding:9px 12px;border-bottom:1px solid #e2e8f0;font-weight:700;">Phase 2: Near-Page-1 Quick Wins</td><td style="padding:9px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;color:#9a3412;">Weeks 3–5</td><td style="padding:9px 12px;border-bottom:1px solid #e2e8f0;">Emergency page: +600 words + FAQ schema. Water heater: cost guide + case studies. Septic: cost guide + FAQ schema. Author bylines on all new blog posts.</td><td style="padding:9px 12px;border-bottom:1px solid #e2e8f0;">"24/7 plumber" pos 12 → top 5. Water heater pos 16 → top 10. Est. +150–200 clicks/month.</td></tr>
+<tr style="background:#f0fdf4;"><td style="padding:9px 12px;border-bottom:1px solid #e2e8f0;font-weight:700;">Phase 3: Location Page Upgrades</td><td style="padding:9px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;color:#15803d;">Weeks 6–10</td><td style="padding:9px 12px;border-bottom:1px solid #e2e8f0;">Expand Bothell + Mukilteo pages to 1,000+ words. Rewrite Lynnwood title. Rebuild Bellevue page + create new Bellevue GBP. Add LocalBusiness schema to all 13 location hubs.</td><td style="padding:9px 12px;border-bottom:1px solid #e2e8f0;">Bothell + Mukilteo into top 15. Bellevue organic foothold. Est. +120–180 clicks/month.</td></tr>
+<tr style="background:#eff6ff;"><td style="padding:9px 12px;border-bottom:1px solid #e2e8f0;font-weight:700;">Phase 4: Sub-Page Template Fix + Batch</td><td style="padding:9px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;color:#1d4ed8;">Weeks 11–16</td><td style="padding:9px 12px;border-bottom:1px solid #e2e8f0;">Fix WordPress title template globally. Add FAQPage schema to all 16 service pages. Add 200–400 words of city-specific content to top 30 highest-impression sub-pages.</td><td style="padding:9px 12px;border-bottom:1px solid #e2e8f0;">Core update protection. FAQPage rich results → +20–40% CTR. Est. +300–400 clicks/month cumulative.</td></tr>
+<tr style="background:#f5f3ff;"><td style="padding:9px 12px;font-weight:700;">Phase 5: Blog Calendar Execution</td><td style="padding:9px 12px;font-weight:600;color:#7c3aed;">Jul 2026 – Jun 2027</td><td style="padding:9px 12px;">Publish 8 posts/month per Section 11 calendar. Each: 1,000–2,000 words, author byline, FAQPage schema, 2 internal links to service pages, 1 CTA.</td><td style="padding:9px 12px;">Build topical authority for drain, water heater, septic, emergency clusters. Est. +400–600 sessions/month by month 12.</td></tr>
+</tbody></table>
+
+<!-- CONTENT QUALITY CHECKLIST -->
+<h3>E-E-A-T Content Quality Checklist — Apply to Every Page Edit</h3>
+<table style="width:100%;border-collapse:collapse;font-size:0.86rem;">
+<thead><tr style="background:#1e3a8a;color:#fff;"><th style="padding:10px 12px;text-align:left;width:22%;">Checkpoint</th><th style="padding:10px 12px;text-align:left;">Requirement</th><th style="padding:10px 12px;text-align:left;width:18%;">Core Update Signal</th></tr></thead>
+<tbody>
+<tr style="background:#fff;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;">E-E-A-T: Experience</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">At least one real job example, technician name, or specific local detail that proves first-hand experience. Not "we have 20 years experience" — show it.</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;color:#b91c1c;font-weight:600;">March 2024 core</td></tr>
+<tr style="background:#f8fafc;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;">E-E-A-T: Expertise</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">License number, certification, or technical explanation a non-plumber couldn't write. E.g. explain why clay pipe in Seattle requires a different approach than PVC.</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;color:#b91c1c;font-weight:600;">Aug 2024 helpful content</td></tr>
+<tr style="background:#fff;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;">E-E-A-T: Authority</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Link to at least one external authoritative source (King County permit office, Seattle building code, EPA water quality). External links to gov/edu sources are an authority signal.</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Ongoing</td></tr>
+<tr style="background:#f8fafc;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;">E-E-A-T: Trust</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Physical address (or service area), license number, insurance statement, and BBB badge must appear on every money page.</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Ongoing</td></tr>
+<tr style="background:#fff;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;">Title Tag</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">65 chars max. Lead with primary keyword. City name in title. Remove "$50 OFF" — put it in meta description only.</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">CTR + core update</td></tr>
+<tr style="background:#f8fafc;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;">Meta Description</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">155 chars max. Include: primary keyword, city, differentiator ("same-day"), and soft CTA ("Call for a free quote").</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">CTR optimization</td></tr>
+<tr style="background:#fff;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;">FAQPage Schema</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Minimum 4 questions per page. Use real questions from GSC "People Also Ask" and Google autocomplete for the target keyword.</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Rich results eligibility</td></tr>
+<tr style="background:#f8fafc;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;">Internal Linking</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Every service page links to: relevant location pages, emergency page, 1–2 recent blog posts. Every blog post links to: the service page + 1 location page.</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">PageRank flow</td></tr>
+<tr style="background:#fff;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;">Word Count</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Service pages: 800–1,500 words. Location hubs: 900–1,200 words. Location×service sub-pages: 600–900 words. Blog posts: 1,000–2,000 words. Contact/About: 400+ words.</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Helpful content threshold</td></tr>
+<tr style="background:#f8fafc;"><td style="padding:8px 12px;font-weight:600;">Image Alt Text</td><td style="padding:8px 12px;">Every image must have descriptive alt text including service and city. Example: "Price Busters technician replacing water heater in Lynnwood WA home."</td><td style="padding:8px 12px;">Accessibility + image SEO</td></tr>
+</tbody></table>
+
+</section>
+</div>
+<!-- ===================== END CONTENT RECOMMENDATIONS ===================== -->
+
 </body>
 </html>
