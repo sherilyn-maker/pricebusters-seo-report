@@ -583,352 +583,6 @@
       </table>
     </div>
   </section>
-</div>
-
-<!-- ===================== TECHNICAL ===================== -->
-<div id="tab-technical" class="tab-content">
-  <section>
-    <h2>Technical SEO & Tracking Issues</h2>
-
-    <div class="alert danger">
-      <strong>🚨 Fix #1: Conversion Tracking Bug</strong>
-      <p>The "Unassigned" channel shows 3,106 conversions from 143 sessions - a 2,172% conversion rate. This is a GA4 misconfiguration where an event (likely <code>session_start</code>, <code>page_view</code>, or <code>scroll</code>) is marked as a conversion in GA4 Admin › Events. <strong>Fix immediately: GA4 Admin › Events › find the incorrectly marked event › uncheck "Mark as conversion."</strong> All conversion reporting is meaningless until this is fixed.</p>
-    </div>
-
-    <div class="card">
-      <h3>Priority Tracking Fixes</h3>
-      <table class="data-table">
-        <thead><tr><th>Issue</th><th>Impact</th><th>Fix</th><th>Time</th></tr></thead>
-        <tbody>
-          <tr><td>Unassigned 3,106 fake conversions</td><td><span class="badge-red">Critical</span></td><td>GA4 Admin › Events › unmark incorrect conversion event</td><td>15 min</td></tr>
-          <tr><td>May Direct spike - unknown source</td><td><span class="badge-red">High</span></td><td>Identify what campaign went out in April/May. UTM tag all URLs.</td><td>30 min</td></tr>
-          <tr><td>Bot traffic: Singapore 626 + China 179</td><td><span class="badge-red">High</span></td><td>GA4 audience filter: country = United States only</td><td>20 min</td></tr>
-          <tr><td>/render GTM ghost traffic (819 views)</td><td><span class="badge-orange">Medium</span></td><td>GA4 Admin › Data Streams › exclude URL contains /render</td><td>10 min</td></tr>
-          <tr><td>Search Console not connected</td><td><span class="badge-red">High</span></td><td>GA4 Admin › Search Console Links › link property</td><td>15 min</td></tr>
-          <tr><td>Google Paid Search: 0 conversions / 52 sessions</td><td><span class="badge-red">Critical</span></td><td>Audit Google Ads - check conversion tracking on landing pages, review ad targeting and keywords</td><td>1 hr</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="card">
-      <h3>Schema Audit</h3>
-      <table class="data-table">
-        <thead><tr><th>Schema Type</th><th>Present?</th><th>Quality</th><th>Action</th></tr></thead>
-        <tbody>
-          <tr><td>LocalBusiness (Plumber)</td><td><span class="badge-green">Yes ✓</span></td><td>Excellent</td><td>Maintain - full plumber schema with ContactPoint, PostalAddress</td></tr>
-          <tr><td>AggregateRating</td><td><span class="badge-green">Yes ✓</span></td><td>Good</td><td>Verify review count and stars are current</td></tr>
-          <tr><td>Review (individual)</td><td><span class="badge-green">Yes ✓</span></td><td>Check dates</td><td>Verify datePublished is in ISO 8601 format (YYYY-MM-DD)</td></tr>
-          <tr><td>Organization / WebSite</td><td><span class="badge-green">Yes ✓</span></td><td>Good</td><td>Social profiles and sitelinks present</td></tr>
-          <tr><td>FAQPage - Sewer Repair</td><td><span class="badge-green">Yes ✓</span></td><td>Strong</td><td>Defend - rich result eligible</td></tr>
-          <tr><td>FAQPage - Water Heater</td><td><span class="badge-green">Yes ✓</span></td><td>Strong</td><td>Defend - rich result eligible</td></tr>
-          <tr><td>FAQPage - Drain Cleaning</td><td><span class="badge-red">MISSING</span></td><td>Gap</td><td>Add immediately - 30 min fix</td></tr>
-          <tr><td>FAQPage - Homepage</td><td><span class="badge-red">MISSING</span></td><td>Gap</td><td>Add 5 FAQ pairs - 30 min task</td></tr>
-          <tr><td>FAQPage - Sump Pumps</td><td><span class="badge-orange">Unverified</span></td><td>Check</td><td>Highest-engagement page - verify and add if missing</td></tr>
-          <tr><td>FAQPage - All other pages</td><td><span class="badge-orange">Likely missing</span></td><td>Gap</td><td>Roll out over 30–60 days</td></tr>
-          <tr><td>BreadcrumbList</td><td><span class="badge-orange">Unverified</span></td><td>Verify</td><td>Check sub-pages - breadcrumbs improve CTR in SERPs</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="card">
-      <h3>Core Web Vitals & Site Health</h3>
-      <div class="alert info">
-        <strong>Search Console not connected - CWV data unavailable</strong>
-        <p>Connect Google Search Console to GA4 immediately. This unlocks Core Web Vitals monitoring, keyword impressions, AI Overview data (as it becomes available in 2026), click-through rates by page, and exact average search positions.</p>
-      </div>
-      <p style="color:var(--muted);font-size:0.9rem">Recommendations pending Search Console connection and direct site crawl for Core Web Vitals (LCP, CLS, FID/INP) data.</p>
-    </div>
-  </section>
-</div>
-
-<!-- ===================== COMPETITORS ===================== -->
-<div id="tab-competitors" class="tab-content">
-  <section>
-    <h2>Competitor Analysis - Seattle Market</h2>
-
-    <div class="card">
-      <h3>Primary Competitors</h3>
-      <table class="data-table">
-        <thead><tr><th>Competitor</th><th>Website</th><th>Why They Compete</th><th>Threat Level</th></tr></thead>
-        <tbody>
-          <tr><td><strong>Beacon Plumbing</strong></td><td>beaconplumbing.net</td><td>Dominant Seattle brand. Strong domain authority, large review volume, decades of presence.</td><td><span class="badge-red">HIGH</span></td></tr>
-          <tr><td><strong>2 Sons Plumbing</strong></td><td>2sonsplumbing.com</td><td>Seattle-native, very strong organic and map pack presence across all Northwest WA terms.</td><td><span class="badge-red">HIGH</span></td></tr>
-          <tr><td><strong>Fischer Plumbing</strong></td><td>fischerplumbing.com</td><td>Established local brand with strong GBP and Yelp presence.</td><td><span class="badge-red">HIGH</span></td></tr>
-          <tr><td><strong>Roto-Rooter Seattle</strong></td><td>rotorooter.com/seattle/</td><td>National brand authority wins generic/branded terms. Strong drain and sewer presence.</td><td><span class="badge-orange">MEDIUM</span></td></tr>
-          <tr><td><strong>The Original Plumber</strong></td><td>theoriginalplumber.com</td><td>Competitive on water heater and emergency terms in Seattle metro.</td><td><span class="badge-orange">MEDIUM</span></td></tr>
-          <tr><td><strong>John's Plumbing</strong></td><td>johnsplumbing.net</td><td>Lynnwood/Everett competitor. Overlaps in Lynnwood service area.</td><td><span class="badge-orange">MEDIUM</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="two-col">
-      <div class="card">
-        <h3>Price Busters' Competitive Advantages</h3>
-        <ul style="list-style:disc;padding-left:20px;line-height:2;font-size:0.88rem">
-          <li>Memorable vanity numbers: <strong>(206) PLUMBER + (425) PLUMBER</strong> - significant brand recall</li>
-          <li>Three active GBP profiles covering Seattle, Lynnwood & Bellevue - greater geographic reach</li>
-          <li>Extremely content-rich service pages (13,000+ words) - strong topical authority</li>
-          <li>$50 OFF offer in title tags - clear CTA differentiator in SERPs</li>
-          <li>FAQPage schema on two key service pages - advantage over most competitors</li>
-          <li>Lynnwood GBP dominates: #1 sewer main, #2 plumber, #3 drain cleaning</li>
-          <li>Bing organic: 172 sessions, 11.6% conv rate - competitor blind spot</li>
-          <li>Now appearing in ChatGPT and Perplexity AI recommendations</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Competitive Gaps to Close</h3>
-        <ul style="list-style:disc;padding-left:20px;line-height:2;font-size:0.88rem">
-          <li>Review volume on Seattle & Bellevue GBPs lower than established competitors</li>
-          <li>Bellevue lacks service × location pages - competitors with dedicated pages rank above generic area pages</li>
-          <li>No pricing/cost guide page - Beacon and 2 Sons capture "how much does plumbing cost" searches</li>
-          <li>Drain cleaning page missing FAQ schema - competitors with FAQ schema get rich result CTR advantage</li>
-          <li>No dedicated 24/7 emergency page - "emergency plumber Seattle" is extremely high-intent</li>
-          <li>Google Search Console not connected - flying blind on keyword rankings</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- ===================== AI SEARCH ===================== -->
-<div id="tab-ai" class="tab-content">
-  <section>
-    <h2>AI Search Traffic <span class="tag purple">2026 Emerging Channel</span></h2>
-
-    <div class="alert purple">
-      <strong>Price Busters is appearing in AI-powered search results</strong>
-      <p>In 2026, Google AI Overview (AI-generated answers at the top of search results), ChatGPT search, and Perplexity AI are all sending measurable traffic to pricebustersplumbing.com. This is an emerging channel that will grow as AI search adoption increases - and it requires different optimization than traditional SEO.</p>
-    </div>
-
-    <div class="metrics-grid">
-      <div class="metric-card" style="border-color:#a855f7;background:linear-gradient(135deg,#faf5ff,#f3e8ff)">
-        <div class="val" style="color:#7c3aed">12</div>
-        <div class="lbl">Total AI Referrals</div>
-        <div class="change">Jan–May 2026</div>
-      </div>
-      <div class="metric-card" style="border-color:#a855f7;background:linear-gradient(135deg,#faf5ff,#f3e8ff)">
-        <div class="val" style="color:#7c3aed">8</div>
-        <div class="lbl">ChatGPT Sessions</div>
-        <div class="change">60% engagement</div>
-      </div>
-      <div class="metric-card" style="border-color:#a855f7;background:linear-gradient(135deg,#faf5ff,#f3e8ff)">
-        <div class="val" style="color:#7c3aed">4</div>
-        <div class="lbl">Perplexity Sessions</div>
-        <div class="change up">1 conversion (25%!)</div>
-      </div>
-      <div class="metric-card" style="border-color:#a855f7;background:linear-gradient(135deg,#faf5ff,#f3e8ff)">
-        <div class="val" style="color:#7c3aed">62.5%</div>
-        <div class="lbl">AI Engagement Rate</div>
-        <div class="change up">vs 44.3% site avg</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>AI Traffic Sources - Detail</h3>
-      <table class="data-table">
-        <thead><tr><th>Source</th><th>Medium</th><th>Sessions</th><th>Users</th><th>Engagement</th><th>Conversions</th><th>Notes</th></tr></thead>
-        <tbody>
-          <tr><td><span class="ai-chip">ChatGPT</span> chatgpt.com</td><td>(not set)</td><td>5</td><td>4</td><td>60.0%</td><td>0</td><td>Primary ChatGPT referral mode</td></tr>
-          <tr><td><span class="ai-chip">ChatGPT</span> chatgpt.com</td><td>referral</td><td>2</td><td>1</td><td>50.0%</td><td>0</td><td>Direct ChatGPT link referral</td></tr>
-          <tr><td><span class="ai-chip">ChatGPT</span> chatgpt.com</td><td>local</td><td>1</td><td>1</td><td>100.0%</td><td>0</td><td>ChatGPT local search feature</td></tr>
-          <tr><td><span class="ai-chip">Perplexity</span></td><td>(not set)</td><td>3</td><td>2</td><td>66.7%</td><td>1</td><td>Perplexity AI answer citations</td></tr>
-          <tr><td><span class="ai-chip">Perplexity</span> perplexity.ai</td><td>referral</td><td>1</td><td>1</td><td>100.0%</td><td>0</td><td>Direct Perplexity link click</td></tr>
-          <tr style="background:#f3e8ff;font-weight:600"><td>Total AI</td><td>-</td><td>12</td><td>9</td><td>62.5%</td><td>1</td><td>1 conversion = 8.3% AI conv. rate</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="card">
-      <h3>Google AI Overview - The Hidden AI Channel</h3>
-      <div class="alert info">
-        <strong>Most Google AI Overview traffic is invisible in GA4 today</strong>
-        <p>Google AI Overview (the AI-generated answer boxes at the top of search results) currently routes clicks as standard <code>google / organic</code> sessions. Google does not yet pass a separate UTM parameter for AI Overview clicks. This means Price Busters' 1,008 Google organic sessions contain an unknown proportion from AI Overview citations - potentially 10–30% based on industry estimates for plumbing-related searches where AI Overviews are common.</p>
-      </div>
-      <div class="two-col">
-        <div>
-          <h4 style="margin-bottom:12px;font-size:0.95rem">What triggers AI Overview appearances:</h4>
-          <ul style="list-style:disc;padding-left:20px;font-size:0.88rem;line-height:2;color:var(--muted)">
-            <li>FAQPage schema - Google's AI pulls FAQ Q&A pairs directly into answers</li>
-            <li>Deep, authoritative content answering specific questions</li>
-            <li>Strong local business schema with accurate NAP data</li>
-            <li>High aggregate review scores (AggregateRating schema)</li>
-            <li>Content that directly answers "how much does X cost" and "how long does X take"</li>
-          </ul>
-        </div>
-        <div>
-          <h4 style="margin-bottom:12px;font-size:0.95rem">Price Busters' current AI overview status:</h4>
-          <ul style="list-style:disc;padding-left:20px;font-size:0.88rem;line-height:2;color:var(--muted)">
-            <li><span class="badge-green">Strong</span> FAQPage schema on sewer repair and water heater pages</li>
-            <li><span class="badge-green">Strong</span> 13,000+ word deep content pages - AI loves detailed answers</li>
-            <li><span class="badge-green">Strong</span> AggregateRating schema - high review count boosts AI citations</li>
-            <li><span class="badge-red">Gap</span> Homepage and drain cleaning page missing FAQ schema</li>
-            <li><span class="badge-red">Gap</span> No structured cost/pricing section - "how much does plumbing cost" queries</li>
-            <li><span class="badge-red">Gap</span> Search Console not connected - no AI Overview impression data when available</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>Action Plan: Maximize AI Search Visibility</h3>
-      <table class="data-table">
-        <thead><tr><th>#</th><th>Action</th><th>Impact on AI Traffic</th><th>Effort</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td>Add FAQPage schema to homepage (5 FAQ pairs)</td><td><span class="badge-red">High - direct AI Overview fuel</span></td><td>30 min</td></tr>
-          <tr><td>2</td><td>Add FAQPage schema to drain cleaning page</td><td><span class="badge-red">High - drain cleaning is top AI search query</span></td><td>30 min</td></tr>
-          <tr><td>3</td><td>Connect Google Search Console to GA4</td><td><span class="badge-orange">Medium - unlock AI Overview impression data in 2026</span></td><td>15 min</td></tr>
-          <tr><td>4</td><td>Add cost section to all service pages ("How much does sewer repair cost in Seattle?")</td><td><span class="badge-red">High - cost queries are dominant AI Overview triggers</span></td><td>1 hr/page</td></tr>
-          <tr><td>5</td><td>Roll out FAQPage schema to all service pages</td><td><span class="badge-orange">Medium - broader AI Overview coverage</span></td><td>30 min/page</td></tr>
-          <tr><td>6</td><td>Build structured "About Price Busters" entity page (services, coverage, reviews, credentials)</td><td><span class="badge-orange">Medium - AI models use this for recommendation confidence</span></td><td>2 hrs</td></tr>
-          <tr><td>7</td><td>Request reviews mentioning specific services ("sewer repair", "water heater") in Lynnwood, Seattle, and Bellevue</td><td><span class="badge-orange">Medium - review content feeds AI recommendation confidence</span></td><td>Ongoing</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="alert success">
-      <strong>💡 Key Insight: AI Visitors Are Higher Quality</strong>
-      <p>The 12 tracked AI referral sessions have a 62.5% engagement rate - significantly above the site average (44.3%) and well above Paid Search (40.4%) and Direct (31.3%). Perplexity AI sessions already converted at 25% (1 of 4 sessions). AI search users arrive with higher intent because they have already received a recommendation from an AI assistant before clicking. As AI search adoption grows through 2026–2027, this channel is expected to become a meaningful revenue driver for local service businesses like Price Busters.</p>
-    </div>
-  </section>
-</div>
-
-<!-- ===================== SEARCH CONSOLE ===================== -->
-<div id="tab-gsc" class="tab-content">
-<section>
-<h2>Google Search Console - Jan 1 to Jun 12, 2026</h2>
-
-<div class="alert danger">
-<strong>CRITICAL: Site Appears Compromised - Indonesian Gambling Spam Injection Detected</strong>
-<p>GSC data reveals that 1,422 of 2,967 total clicks (48%) came from Indonesian gambling/slot spam keywords - "laetoto," "omtogel," "prada55," "buaya777," "judol303," and dozens more. These terms are ranking at positions 1–10 for pricebustersplumbing.com, indicating hidden spam content has been injected into the site's pages. <strong>This is an active WordPress hack.</strong> Affected pages: <code>/sitemap/</code> (680 gambling clicks), <code>/about-us/gallery/</code> (652 gambling clicks), <code>/specials/</code> (172,362 spam impressions). Immediate remediation required - this compromises Google's trust in the domain and may trigger a manual penalty.</p>
-</div>
-
-<div class="metrics-grid">
-  <div class="metric-card danger"><div class="val">2,967</div><div class="lbl">Total GSC Clicks</div><div class="change down">Dec 28, 2025 – Jun 12, 2026</div></div>
-  <div class="metric-card danger"><div class="val">48%</div><div class="lbl">Spam Clicks</div><div class="change down">1,422 gambling keywords</div></div>
-  <div class="metric-card good"><div class="val">478</div><div class="lbl">Real Organic Clicks</div><div class="change">16% of total (mostly branded)</div></div>
-  <div class="metric-card warn"><div class="val">1,001,415</div><div class="lbl">Total Impressions</div><div class="change">Including spam inflated pages</div></div>
-  <div class="metric-card warn"><div class="val">0.3%</div><div class="lbl">Overall CTR</div><div class="change down">Dragged down by spam impressions</div></div>
-  <div class="metric-card warn"><div class="val">33.0</div><div class="lbl">Avg Position</div><div class="change down">Page 3+ for most queries</div></div>
-</div>
-
-<div class="two-col" style="margin-bottom:24px">
-  <div class="card">
-    <h3>Clicks Breakdown: Real vs. Spam</h3>
-    <div class="chart-wrap"><canvas id="gscClicksPie"></canvas></div>
-  </div>
-  <div class="card">
-    <h3>Top Pages by Clicks (Jan–Jun 2026)</h3>
-    <div class="chart-wrap"><canvas id="gscPagesBar"></canvas></div>
-  </div>
-</div>
-
-<div class="card">
-<h3>Hack Remediation - Immediate Action Required <span class="tag red">URGENT</span></h3>
-<table class="data-table">
-<thead><tr><th>Step</th><th>Action</th><th>How</th><th>Time</th></tr></thead>
-<tbody>
-<tr style="background:#fef2f2"><td><strong>1</strong></td><td><strong>Scan for injected files</strong></td><td>Run Wordfence or Sucuri Scanner immediately. Look for PHP files in /uploads/, /gallery/, /sitemap/ that shouldn't be there. Check wp-content/themes and wp-content/plugins for modified files.</td><td>30 min</td></tr>
-<tr style="background:#fef2f2"><td><strong>2</strong></td><td><strong>Check /about-us/gallery/ and /sitemap/ pages</strong></td><td>View these pages while logged OUT of WordPress. Check for hidden iframe or redirect injected at the bottom of the HTML. The gambling spam is likely hidden there (white text on white background, or display:none).</td><td>15 min</td></tr>
-<tr style="background:#fef2f2"><td><strong>3</strong></td><td><strong>Reset all WordPress admin passwords</strong></td><td>Change all admin user passwords immediately. Check for unknown admin accounts in Users › All Users. Remove any unrecognized accounts.</td><td>10 min</td></tr>
-<tr style="background:#fff7ed"><td><strong>4</strong></td><td><strong>Update WordPress core, themes, plugins</strong></td><td>Outdated plugins are the #1 entry vector. Update everything in Dashboard › Updates. Particularly check: contact form plugins, page builders, file manager plugins.</td><td>20 min</td></tr>
-<tr style="background:#fff7ed"><td><strong>5</strong></td><td><strong>Request Google reconsideration after cleanup</strong></td><td>Once cleaned: GSC › Security &amp; Manual Actions › check for manual penalty. If penalty exists, submit reconsideration request. If none, submit new sitemap to expedite re-crawl.</td><td>15 min</td></tr>
-<tr style="background:#fff7ed"><td><strong>6</strong></td><td><strong>Block xmlrpc.php and disable file editor</strong></td><td>Add to wp-config.php: <code>define('DISALLOW_FILE_EDIT', true);</code> and block xmlrpc.php at the server level (common entry point for spam injection attacks).</td><td>15 min</td></tr>
-</tbody>
-</table>
-</div>
-
-<div class="two-col">
-<div class="card">
-<h3>Real Organic Keyword Performance</h3>
-<div class="alert warning" style="margin-bottom:12px"><strong>Observation: 97% of real organic clicks are branded searches</strong><p>Nearly all non-spam clicks are people searching for "price busters plumbing" directly. The site has almost zero organic visibility for non-branded plumbing terms - indicating SEO work is needed across all service keywords.</p></div>
-<table class="data-table">
-<thead><tr><th>Keyword</th><th>Clicks</th><th>Impressions</th><th>CTR</th><th>Avg Position</th><th>Type</th></tr></thead>
-<tbody>
-<tr><td>price busters plumbing</td><td>239</td><td>2,458</td><td>9.7%</td><td>2.3</td><td><span class="badge-blue">Branded</span></td></tr>
-<tr><td>price busters plumbing seattle</td><td>55</td><td>800</td><td>6.9%</td><td>3.7</td><td><span class="badge-blue">Branded</span></td></tr>
-<tr><td>pricebusters plumbing</td><td>35</td><td>128</td><td>27.3%</td><td>1.4</td><td><span class="badge-blue">Branded</span></td></tr>
-<tr><td>price busters plumbing &amp; sewer</td><td>31</td><td>2,037</td><td>1.5%</td><td>2.4</td><td><span class="badge-blue">Branded</span></td></tr>
-<tr><td>price buster plumbing</td><td>22</td><td>168</td><td>13.1%</td><td>5.7</td><td><span class="badge-blue">Branded</span></td></tr>
-<tr><td>price busters plumbing reviews</td><td>12</td><td>606</td><td>2.0%</td><td>5.5</td><td><span class="badge-blue">Branded</span></td></tr>
-<tr><td>price busters</td><td>4</td><td>205</td><td>1.9%</td><td>1.5</td><td><span class="badge-blue">Branded</span></td></tr>
-<tr><td>budget plumbing</td><td>2</td><td>19</td><td>10.5%</td><td>23.2</td><td><span class="badge-gray">Generic</span></td></tr>
-<tr><td>plumbers near me</td><td>2</td><td>1,427</td><td>0.1%</td><td>37.5</td><td><span class="badge-orange">Target</span></td></tr>
-<tr><td>clogged kitchen sink</td><td>1</td><td>2</td><td>50%</td><td>10</td><td><span class="badge-orange">Target</span></td></tr>
-<tr><td>24 hour plumber near me</td><td>1</td><td>278</td><td>0.4%</td><td>37.0</td><td><span class="badge-orange">Target</span></td></tr>
-<tr><td>drain cleaning seattle</td><td>1</td><td>1,111</td><td>0.1%</td><td>61.0</td><td><span class="badge-orange">Target</span></td></tr>
-<tr><td>leak detection near me</td><td>1</td><td>168</td><td>0.6%</td><td>35.9</td><td><span class="badge-orange">Target</span></td></tr>
-<tr><td>plumber seattle</td><td>1</td><td>1,126</td><td>0.1%</td><td>50.3</td><td><span class="badge-orange">Target</span></td></tr>
-<tr><td>plumber near me</td><td>1</td><td>3,022</td><td>0.0%</td><td>23.6</td><td><span class="badge-orange">Target</span></td></tr>
-<tr><td>plumber in bellevue</td><td>1</td><td>229</td><td>0.4%</td><td>63.8</td><td><span class="badge-orange">Target</span></td></tr>
-<tr><td>plumber in lynnwood</td><td>1</td><td>330</td><td>0.3%</td><td>35.1</td><td><span class="badge-orange">Target</span></td></tr>
-</tbody>
-</table>
-</div>
-
-<div class="card">
-<h3>Organic Opportunity Analysis - High Impressions, Low Rank</h3>
-<div class="alert info" style="margin-bottom:12px"><strong>These keywords prove the site CAN get impressions - it just needs stronger pages + authority to move into top 10.</strong></div>
-<table class="data-table">
-<thead><tr><th>Keyword</th><th>Impressions</th><th>Avg Position</th><th>Gap to Page 1</th><th>Opportunity</th></tr></thead>
-<tbody>
-<tr><td>plumber near me</td><td>3,022</td><td>23.6</td><td><span class="badge-red">14 spots</span></td><td>Highest volume term; strengthen homepage + GBP reviews</td></tr>
-<tr><td>drain cleaning service</td><td>2,295</td><td>61.0</td><td><span class="badge-red">51 spots</span></td><td>Add more unique content + FAQ schema to drain page</td></tr>
-<tr><td>price busters plumbing &amp; sewer</td><td>2,037</td><td>2.4</td><td><span class="badge-green">Already ranking</span></td><td>CTR only 1.5% - improve title tag click appeal</td></tr>
-<tr><td>plumber seattle</td><td>1,126</td><td>50.3</td><td><span class="badge-red">40 spots</span></td><td>High competition - requires sustained link building</td></tr>
-<tr><td>drain cleaning seattle</td><td>1,111</td><td>61.0</td><td><span class="badge-red">51 spots</span></td><td>Top target keyword - build topical authority via blog posts</td></tr>
-<tr><td>plumbers near me</td><td>1,427</td><td>37.5</td><td><span class="badge-red">28 spots</span></td><td>Add structured data + more reviews to improve local pack</td></tr>
-<tr><td>plumbing companies near me</td><td>206</td><td>31.5</td><td><span class="badge-red">22 spots</span></td><td>Create "Why choose Price Busters" comparison content</td></tr>
-<tr><td>plumber in lynnwood</td><td>330</td><td>35.1</td><td><span class="badge-red">25 spots</span></td><td>Strengthen Lynnwood location page + GBP signals</td></tr>
-<tr><td>plumber in bellevue</td><td>229</td><td>63.8</td><td><span class="badge-red">54 spots</span></td><td>New GBP + blog post targeting Bellevue (May 2027 calendar)</td></tr>
-<tr><td>leak detection near me</td><td>168</td><td>35.9</td><td><span class="badge-red">26 spots</span></td><td>Add FAQPage schema + cost content to /services/leak-detection/</td></tr>
-</tbody>
-</table>
-</div>
-</div>
-
-<div class="card">
-<h3>Top Pages - Click Performance (All Traffic incl. Spam)</h3>
-<div class="alert warning" style="margin-bottom:12px"><strong>Pages marked in red are confirmed or likely spam-injection targets - verify and clean immediately.</strong></div>
-<table class="data-table">
-<thead><tr><th>Page</th><th>Clicks</th><th>Impressions</th><th>CTR</th><th>Avg Position</th><th>Assessment</th></tr></thead>
-<tbody>
-<tr style="background:#fef2f2"><td><a href="https://pricebustersplumbing.com/sitemap/" target="_blank" style="color:var(--primary)">/sitemap/</a></td><td>680</td><td>5,863</td><td>11.6%</td><td>5.3</td><td><span class="badge-red">Spam-infected - 680 gambling clicks</span></td></tr>
-<tr style="background:#fef2f2"><td><a href="https://pricebustersplumbing.com/about-us/gallery/" target="_blank" style="color:var(--primary)">/about-us/gallery/</a></td><td>652</td><td>10,765</td><td>6.1%</td><td>6.8</td><td><span class="badge-red">Spam-infected - 652 gambling clicks</span></td></tr>
-<tr><td><a href="https://pricebustersplumbing.com/" target="_blank" style="color:var(--primary)">/</a> (Homepage)</td><td>564</td><td>101,313</td><td>0.56%</td><td>34.1</td><td><span class="badge-yellow">Low CTR for homepage - title/meta optimization needed</span></td></tr>
-<tr><td><a href="https://pricebustersplumbing.com/blog/" target="_blank" style="color:var(--primary)">/blog/</a></td><td>259</td><td>9,227</td><td>2.8%</td><td>7.3</td><td><span class="badge-green">Good performance - grow blog content</span></td></tr>
-<tr style="background:#fef2f2"><td><a href="https://pricebustersplumbing.com/specials/" target="_blank" style="color:var(--primary)">/specials/</a></td><td>203</td><td>172,362</td><td>0.12%</td><td>8.1</td><td><span class="badge-red">172K impressions for spam terms - check immediately</span></td></tr>
-<tr><td><a href="https://pricebustersplumbing.com/service-areas/bothell-wa/" target="_blank" style="color:var(--primary)">/service-areas/bothell-wa/</a></td><td>103</td><td>27,983</td><td>0.37%</td><td>35.2</td><td><span class="badge-orange">Position 35 - needs content + link authority</span></td></tr>
-<tr><td><a href="https://pricebustersplumbing.com/contact/" target="_blank" style="color:var(--primary)">/contact/</a></td><td>90</td><td>15,740</td><td>0.57%</td><td>28.7</td><td><span class="badge-yellow">Improve page for local search signals</span></td></tr>
-<tr><td><a href="https://pricebustersplumbing.com/service-areas/" target="_blank" style="color:var(--primary)">/service-areas/</a></td><td>87</td><td>8,001</td><td>1.09%</td><td>5.7</td><td><span class="badge-green">Good position - optimize for "plumber [city]" terms</span></td></tr>
-<tr><td><a href="https://pricebustersplumbing.com/service-areas/mukilteo-wa/" target="_blank" style="color:var(--primary)">/service-areas/mukilteo-wa/</a></td><td>84</td><td>19,699</td><td>0.43%</td><td>27.0</td><td><span class="badge-orange">Position 27 - add local content and FAQ schema</span></td></tr>
-<tr><td><a href="https://pricebustersplumbing.com/about-us/testimonials/" target="_blank" style="color:var(--primary)">/about-us/testimonials/</a></td><td>62</td><td>3,603</td><td>1.7%</td><td>6.5</td><td><span class="badge-green">Good position - add Review schema markup</span></td></tr>
-<tr><td><a href="https://pricebustersplumbing.com/service-areas/lynnwood-wa/" target="_blank" style="color:var(--primary)">/service-areas/lynnwood-wa/</a></td><td>46</td><td>15,154</td><td>0.30%</td><td>35.9</td><td><span class="badge-orange">Lynnwood is #1 GBP but only position 36 organic</span></td></tr>
-<tr><td><a href="https://pricebustersplumbing.com/service-areas/lynnwood-wa/plumbing-lynnwood-wa/" target="_blank" style="color:var(--primary)">/service-areas/lynnwood-wa/plumbing-lynnwood-wa/</a></td><td>5</td><td>24,851</td><td>0.02%</td><td>41.3</td><td><span class="badge-red">24K impressions at position 41 - needs major content upgrade</span></td></tr>
-</tbody>
-</table>
-</div>
-
-<div class="card">
-<h3>Search Console Key Takeaways</h3>
-<div class="three-col">
-  <div class="alert danger">
-    <strong>1. Fix the Hack First</strong>
-    <p>The gambling spam injection is the single most urgent issue. Until cleaned, Google is penalizing trust in this domain for all plumbing queries. The spam may already have triggered an algorithmic demotion - explaining the very low positions for target keywords.</p>
-  </div>
-  <div class="alert warning">
-    <strong>2. Zero Non-Branded Organic Traffic</strong>
-    <p>Despite 1M+ impressions, only ~20 real non-branded clicks came through in 6 months. The site appears on page 3–7 for every target keyword ("plumber seattle," "drain cleaning," "plumber near me"). Needs sustained technical SEO and content work to move up.</p>
-  </div>
-  <div class="alert info">
-    <strong>3. Blog Is the Bright Spot</strong>
-    <p>The /blog/ page generates 259 clicks at position 7.3 - the best organic performance outside branded searches. Investing in the Blog Content Calendar (see that tab) is the highest-ROI SEO move available right now, alongside fixing the hack.</p>
-  </div>
-</div>
-</div>
-
-</section>
-</div>
-
 <!-- ===================== DEEP AUDIT ===================== -->
 <section>
 <h2>Deep Audit - All Pages (Excluding Blog Posts)</h2>
@@ -1339,6 +993,353 @@ Lynnwood · Bellevue · Shoreline · Edmonds · Bothell · Kirkland · Everett �
 <tr style="background:#fff;"><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;font-weight:600;">Word Count</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Service pages: 800–1,500 words. Location hubs: 900–1,200 words. Location×service sub-pages: 600–900 words. Blog posts: 1,000–2,000 words. Contact/About: 400+ words.</td><td style="padding:8px 12px;border-bottom:1px solid #e2e8f0;">Helpful content threshold</td></tr>
 <tr style="background:#f8fafc;"><td style="padding:8px 12px;font-weight:600;">Image Alt Text</td><td style="padding:8px 12px;">Every image must have descriptive alt text including service and city. Example: "Price Busters technician replacing water heater in Lynnwood WA home."</td><td style="padding:8px 12px;">Accessibility + image SEO</td></tr>
 </tbody></table>
+
+</section>
+
+
+</div>
+</div>
+
+<!-- ===================== TECHNICAL ===================== -->
+<div id="tab-technical" class="tab-content">
+  <section>
+    <h2>Technical SEO & Tracking Issues</h2>
+
+    <div class="alert danger">
+      <strong>🚨 Fix #1: Conversion Tracking Bug</strong>
+      <p>The "Unassigned" channel shows 3,106 conversions from 143 sessions - a 2,172% conversion rate. This is a GA4 misconfiguration where an event (likely <code>session_start</code>, <code>page_view</code>, or <code>scroll</code>) is marked as a conversion in GA4 Admin › Events. <strong>Fix immediately: GA4 Admin › Events › find the incorrectly marked event › uncheck "Mark as conversion."</strong> All conversion reporting is meaningless until this is fixed.</p>
+    </div>
+
+    <div class="card">
+      <h3>Priority Tracking Fixes</h3>
+      <table class="data-table">
+        <thead><tr><th>Issue</th><th>Impact</th><th>Fix</th><th>Time</th></tr></thead>
+        <tbody>
+          <tr><td>Unassigned 3,106 fake conversions</td><td><span class="badge-red">Critical</span></td><td>GA4 Admin › Events › unmark incorrect conversion event</td><td>15 min</td></tr>
+          <tr><td>May Direct spike - unknown source</td><td><span class="badge-red">High</span></td><td>Identify what campaign went out in April/May. UTM tag all URLs.</td><td>30 min</td></tr>
+          <tr><td>Bot traffic: Singapore 626 + China 179</td><td><span class="badge-red">High</span></td><td>GA4 audience filter: country = United States only</td><td>20 min</td></tr>
+          <tr><td>/render GTM ghost traffic (819 views)</td><td><span class="badge-orange">Medium</span></td><td>GA4 Admin › Data Streams › exclude URL contains /render</td><td>10 min</td></tr>
+          <tr><td>Search Console not connected</td><td><span class="badge-red">High</span></td><td>GA4 Admin › Search Console Links › link property</td><td>15 min</td></tr>
+          <tr><td>Google Paid Search: 0 conversions / 52 sessions</td><td><span class="badge-red">Critical</span></td><td>Audit Google Ads - check conversion tracking on landing pages, review ad targeting and keywords</td><td>1 hr</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Schema Audit</h3>
+      <table class="data-table">
+        <thead><tr><th>Schema Type</th><th>Present?</th><th>Quality</th><th>Action</th></tr></thead>
+        <tbody>
+          <tr><td>LocalBusiness (Plumber)</td><td><span class="badge-green">Yes ✓</span></td><td>Excellent</td><td>Maintain - full plumber schema with ContactPoint, PostalAddress</td></tr>
+          <tr><td>AggregateRating</td><td><span class="badge-green">Yes ✓</span></td><td>Good</td><td>Verify review count and stars are current</td></tr>
+          <tr><td>Review (individual)</td><td><span class="badge-green">Yes ✓</span></td><td>Check dates</td><td>Verify datePublished is in ISO 8601 format (YYYY-MM-DD)</td></tr>
+          <tr><td>Organization / WebSite</td><td><span class="badge-green">Yes ✓</span></td><td>Good</td><td>Social profiles and sitelinks present</td></tr>
+          <tr><td>FAQPage - Sewer Repair</td><td><span class="badge-green">Yes ✓</span></td><td>Strong</td><td>Defend - rich result eligible</td></tr>
+          <tr><td>FAQPage - Water Heater</td><td><span class="badge-green">Yes ✓</span></td><td>Strong</td><td>Defend - rich result eligible</td></tr>
+          <tr><td>FAQPage - Drain Cleaning</td><td><span class="badge-red">MISSING</span></td><td>Gap</td><td>Add immediately - 30 min fix</td></tr>
+          <tr><td>FAQPage - Homepage</td><td><span class="badge-red">MISSING</span></td><td>Gap</td><td>Add 5 FAQ pairs - 30 min task</td></tr>
+          <tr><td>FAQPage - Sump Pumps</td><td><span class="badge-orange">Unverified</span></td><td>Check</td><td>Highest-engagement page - verify and add if missing</td></tr>
+          <tr><td>FAQPage - All other pages</td><td><span class="badge-orange">Likely missing</span></td><td>Gap</td><td>Roll out over 30–60 days</td></tr>
+          <tr><td>BreadcrumbList</td><td><span class="badge-orange">Unverified</span></td><td>Verify</td><td>Check sub-pages - breadcrumbs improve CTR in SERPs</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Core Web Vitals & Site Health</h3>
+      <div class="alert info">
+        <strong>Search Console not connected - CWV data unavailable</strong>
+        <p>Connect Google Search Console to GA4 immediately. This unlocks Core Web Vitals monitoring, keyword impressions, AI Overview data (as it becomes available in 2026), click-through rates by page, and exact average search positions.</p>
+      </div>
+      <p style="color:var(--muted);font-size:0.9rem">Recommendations pending Search Console connection and direct site crawl for Core Web Vitals (LCP, CLS, FID/INP) data.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== COMPETITORS ===================== -->
+<div id="tab-competitors" class="tab-content">
+  <section>
+    <h2>Competitor Analysis - Seattle Market</h2>
+
+    <div class="card">
+      <h3>Primary Competitors</h3>
+      <table class="data-table">
+        <thead><tr><th>Competitor</th><th>Website</th><th>Why They Compete</th><th>Threat Level</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Beacon Plumbing</strong></td><td>beaconplumbing.net</td><td>Dominant Seattle brand. Strong domain authority, large review volume, decades of presence.</td><td><span class="badge-red">HIGH</span></td></tr>
+          <tr><td><strong>2 Sons Plumbing</strong></td><td>2sonsplumbing.com</td><td>Seattle-native, very strong organic and map pack presence across all Northwest WA terms.</td><td><span class="badge-red">HIGH</span></td></tr>
+          <tr><td><strong>Fischer Plumbing</strong></td><td>fischerplumbing.com</td><td>Established local brand with strong GBP and Yelp presence.</td><td><span class="badge-red">HIGH</span></td></tr>
+          <tr><td><strong>Roto-Rooter Seattle</strong></td><td>rotorooter.com/seattle/</td><td>National brand authority wins generic/branded terms. Strong drain and sewer presence.</td><td><span class="badge-orange">MEDIUM</span></td></tr>
+          <tr><td><strong>The Original Plumber</strong></td><td>theoriginalplumber.com</td><td>Competitive on water heater and emergency terms in Seattle metro.</td><td><span class="badge-orange">MEDIUM</span></td></tr>
+          <tr><td><strong>John's Plumbing</strong></td><td>johnsplumbing.net</td><td>Lynnwood/Everett competitor. Overlaps in Lynnwood service area.</td><td><span class="badge-orange">MEDIUM</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <h3>Price Busters' Competitive Advantages</h3>
+        <ul style="list-style:disc;padding-left:20px;line-height:2;font-size:0.88rem">
+          <li>Memorable vanity numbers: <strong>(206) PLUMBER + (425) PLUMBER</strong> - significant brand recall</li>
+          <li>Three active GBP profiles covering Seattle, Lynnwood & Bellevue - greater geographic reach</li>
+          <li>Extremely content-rich service pages (13,000+ words) - strong topical authority</li>
+          <li>$50 OFF offer in title tags - clear CTA differentiator in SERPs</li>
+          <li>FAQPage schema on two key service pages - advantage over most competitors</li>
+          <li>Lynnwood GBP dominates: #1 sewer main, #2 plumber, #3 drain cleaning</li>
+          <li>Bing organic: 172 sessions, 11.6% conv rate - competitor blind spot</li>
+          <li>Now appearing in ChatGPT and Perplexity AI recommendations</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Competitive Gaps to Close</h3>
+        <ul style="list-style:disc;padding-left:20px;line-height:2;font-size:0.88rem">
+          <li>Review volume on Seattle & Bellevue GBPs lower than established competitors</li>
+          <li>Bellevue lacks service × location pages - competitors with dedicated pages rank above generic area pages</li>
+          <li>No pricing/cost guide page - Beacon and 2 Sons capture "how much does plumbing cost" searches</li>
+          <li>Drain cleaning page missing FAQ schema - competitors with FAQ schema get rich result CTR advantage</li>
+          <li>No dedicated 24/7 emergency page - "emergency plumber Seattle" is extremely high-intent</li>
+          <li>Google Search Console not connected - flying blind on keyword rankings</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== AI SEARCH ===================== -->
+<div id="tab-ai" class="tab-content">
+  <section>
+    <h2>AI Search Traffic <span class="tag purple">2026 Emerging Channel</span></h2>
+
+    <div class="alert purple">
+      <strong>Price Busters is appearing in AI-powered search results</strong>
+      <p>In 2026, Google AI Overview (AI-generated answers at the top of search results), ChatGPT search, and Perplexity AI are all sending measurable traffic to pricebustersplumbing.com. This is an emerging channel that will grow as AI search adoption increases - and it requires different optimization than traditional SEO.</p>
+    </div>
+
+    <div class="metrics-grid">
+      <div class="metric-card" style="border-color:#a855f7;background:linear-gradient(135deg,#faf5ff,#f3e8ff)">
+        <div class="val" style="color:#7c3aed">12</div>
+        <div class="lbl">Total AI Referrals</div>
+        <div class="change">Jan–May 2026</div>
+      </div>
+      <div class="metric-card" style="border-color:#a855f7;background:linear-gradient(135deg,#faf5ff,#f3e8ff)">
+        <div class="val" style="color:#7c3aed">8</div>
+        <div class="lbl">ChatGPT Sessions</div>
+        <div class="change">60% engagement</div>
+      </div>
+      <div class="metric-card" style="border-color:#a855f7;background:linear-gradient(135deg,#faf5ff,#f3e8ff)">
+        <div class="val" style="color:#7c3aed">4</div>
+        <div class="lbl">Perplexity Sessions</div>
+        <div class="change up">1 conversion (25%!)</div>
+      </div>
+      <div class="metric-card" style="border-color:#a855f7;background:linear-gradient(135deg,#faf5ff,#f3e8ff)">
+        <div class="val" style="color:#7c3aed">62.5%</div>
+        <div class="lbl">AI Engagement Rate</div>
+        <div class="change up">vs 44.3% site avg</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>AI Traffic Sources - Detail</h3>
+      <table class="data-table">
+        <thead><tr><th>Source</th><th>Medium</th><th>Sessions</th><th>Users</th><th>Engagement</th><th>Conversions</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td><span class="ai-chip">ChatGPT</span> chatgpt.com</td><td>(not set)</td><td>5</td><td>4</td><td>60.0%</td><td>0</td><td>Primary ChatGPT referral mode</td></tr>
+          <tr><td><span class="ai-chip">ChatGPT</span> chatgpt.com</td><td>referral</td><td>2</td><td>1</td><td>50.0%</td><td>0</td><td>Direct ChatGPT link referral</td></tr>
+          <tr><td><span class="ai-chip">ChatGPT</span> chatgpt.com</td><td>local</td><td>1</td><td>1</td><td>100.0%</td><td>0</td><td>ChatGPT local search feature</td></tr>
+          <tr><td><span class="ai-chip">Perplexity</span></td><td>(not set)</td><td>3</td><td>2</td><td>66.7%</td><td>1</td><td>Perplexity AI answer citations</td></tr>
+          <tr><td><span class="ai-chip">Perplexity</span> perplexity.ai</td><td>referral</td><td>1</td><td>1</td><td>100.0%</td><td>0</td><td>Direct Perplexity link click</td></tr>
+          <tr style="background:#f3e8ff;font-weight:600"><td>Total AI</td><td>-</td><td>12</td><td>9</td><td>62.5%</td><td>1</td><td>1 conversion = 8.3% AI conv. rate</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Google AI Overview - The Hidden AI Channel</h3>
+      <div class="alert info">
+        <strong>Most Google AI Overview traffic is invisible in GA4 today</strong>
+        <p>Google AI Overview (the AI-generated answer boxes at the top of search results) currently routes clicks as standard <code>google / organic</code> sessions. Google does not yet pass a separate UTM parameter for AI Overview clicks. This means Price Busters' 1,008 Google organic sessions contain an unknown proportion from AI Overview citations - potentially 10–30% based on industry estimates for plumbing-related searches where AI Overviews are common.</p>
+      </div>
+      <div class="two-col">
+        <div>
+          <h4 style="margin-bottom:12px;font-size:0.95rem">What triggers AI Overview appearances:</h4>
+          <ul style="list-style:disc;padding-left:20px;font-size:0.88rem;line-height:2;color:var(--muted)">
+            <li>FAQPage schema - Google's AI pulls FAQ Q&A pairs directly into answers</li>
+            <li>Deep, authoritative content answering specific questions</li>
+            <li>Strong local business schema with accurate NAP data</li>
+            <li>High aggregate review scores (AggregateRating schema)</li>
+            <li>Content that directly answers "how much does X cost" and "how long does X take"</li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="margin-bottom:12px;font-size:0.95rem">Price Busters' current AI overview status:</h4>
+          <ul style="list-style:disc;padding-left:20px;font-size:0.88rem;line-height:2;color:var(--muted)">
+            <li><span class="badge-green">Strong</span> FAQPage schema on sewer repair and water heater pages</li>
+            <li><span class="badge-green">Strong</span> 13,000+ word deep content pages - AI loves detailed answers</li>
+            <li><span class="badge-green">Strong</span> AggregateRating schema - high review count boosts AI citations</li>
+            <li><span class="badge-red">Gap</span> Homepage and drain cleaning page missing FAQ schema</li>
+            <li><span class="badge-red">Gap</span> No structured cost/pricing section - "how much does plumbing cost" queries</li>
+            <li><span class="badge-red">Gap</span> Search Console not connected - no AI Overview impression data when available</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Action Plan: Maximize AI Search Visibility</h3>
+      <table class="data-table">
+        <thead><tr><th>#</th><th>Action</th><th>Impact on AI Traffic</th><th>Effort</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Add FAQPage schema to homepage (5 FAQ pairs)</td><td><span class="badge-red">High - direct AI Overview fuel</span></td><td>30 min</td></tr>
+          <tr><td>2</td><td>Add FAQPage schema to drain cleaning page</td><td><span class="badge-red">High - drain cleaning is top AI search query</span></td><td>30 min</td></tr>
+          <tr><td>3</td><td>Connect Google Search Console to GA4</td><td><span class="badge-orange">Medium - unlock AI Overview impression data in 2026</span></td><td>15 min</td></tr>
+          <tr><td>4</td><td>Add cost section to all service pages ("How much does sewer repair cost in Seattle?")</td><td><span class="badge-red">High - cost queries are dominant AI Overview triggers</span></td><td>1 hr/page</td></tr>
+          <tr><td>5</td><td>Roll out FAQPage schema to all service pages</td><td><span class="badge-orange">Medium - broader AI Overview coverage</span></td><td>30 min/page</td></tr>
+          <tr><td>6</td><td>Build structured "About Price Busters" entity page (services, coverage, reviews, credentials)</td><td><span class="badge-orange">Medium - AI models use this for recommendation confidence</span></td><td>2 hrs</td></tr>
+          <tr><td>7</td><td>Request reviews mentioning specific services ("sewer repair", "water heater") in Lynnwood, Seattle, and Bellevue</td><td><span class="badge-orange">Medium - review content feeds AI recommendation confidence</span></td><td>Ongoing</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="alert success">
+      <strong>💡 Key Insight: AI Visitors Are Higher Quality</strong>
+      <p>The 12 tracked AI referral sessions have a 62.5% engagement rate - significantly above the site average (44.3%) and well above Paid Search (40.4%) and Direct (31.3%). Perplexity AI sessions already converted at 25% (1 of 4 sessions). AI search users arrive with higher intent because they have already received a recommendation from an AI assistant before clicking. As AI search adoption grows through 2026–2027, this channel is expected to become a meaningful revenue driver for local service businesses like Price Busters.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== SEARCH CONSOLE ===================== -->
+<div id="tab-gsc" class="tab-content">
+<section>
+<h2>Google Search Console - Jan 1 to Jun 12, 2026</h2>
+
+<div class="alert danger">
+<strong>CRITICAL: Site Appears Compromised - Indonesian Gambling Spam Injection Detected</strong>
+<p>GSC data reveals that 1,422 of 2,967 total clicks (48%) came from Indonesian gambling/slot spam keywords - "laetoto," "omtogel," "prada55," "buaya777," "judol303," and dozens more. These terms are ranking at positions 1–10 for pricebustersplumbing.com, indicating hidden spam content has been injected into the site's pages. <strong>This is an active WordPress hack.</strong> Affected pages: <code>/sitemap/</code> (680 gambling clicks), <code>/about-us/gallery/</code> (652 gambling clicks), <code>/specials/</code> (172,362 spam impressions). Immediate remediation required - this compromises Google's trust in the domain and may trigger a manual penalty.</p>
+</div>
+
+<div class="metrics-grid">
+  <div class="metric-card danger"><div class="val">2,967</div><div class="lbl">Total GSC Clicks</div><div class="change down">Dec 28, 2025 – Jun 12, 2026</div></div>
+  <div class="metric-card danger"><div class="val">48%</div><div class="lbl">Spam Clicks</div><div class="change down">1,422 gambling keywords</div></div>
+  <div class="metric-card good"><div class="val">478</div><div class="lbl">Real Organic Clicks</div><div class="change">16% of total (mostly branded)</div></div>
+  <div class="metric-card warn"><div class="val">1,001,415</div><div class="lbl">Total Impressions</div><div class="change">Including spam inflated pages</div></div>
+  <div class="metric-card warn"><div class="val">0.3%</div><div class="lbl">Overall CTR</div><div class="change down">Dragged down by spam impressions</div></div>
+  <div class="metric-card warn"><div class="val">33.0</div><div class="lbl">Avg Position</div><div class="change down">Page 3+ for most queries</div></div>
+</div>
+
+<div class="two-col" style="margin-bottom:24px">
+  <div class="card">
+    <h3>Clicks Breakdown: Real vs. Spam</h3>
+    <div class="chart-wrap"><canvas id="gscClicksPie"></canvas></div>
+  </div>
+  <div class="card">
+    <h3>Top Pages by Clicks (Jan–Jun 2026)</h3>
+    <div class="chart-wrap"><canvas id="gscPagesBar"></canvas></div>
+  </div>
+</div>
+
+<div class="card">
+<h3>Hack Remediation - Immediate Action Required <span class="tag red">URGENT</span></h3>
+<table class="data-table">
+<thead><tr><th>Step</th><th>Action</th><th>How</th><th>Time</th></tr></thead>
+<tbody>
+<tr style="background:#fef2f2"><td><strong>1</strong></td><td><strong>Scan for injected files</strong></td><td>Run Wordfence or Sucuri Scanner immediately. Look for PHP files in /uploads/, /gallery/, /sitemap/ that shouldn't be there. Check wp-content/themes and wp-content/plugins for modified files.</td><td>30 min</td></tr>
+<tr style="background:#fef2f2"><td><strong>2</strong></td><td><strong>Check /about-us/gallery/ and /sitemap/ pages</strong></td><td>View these pages while logged OUT of WordPress. Check for hidden iframe or redirect injected at the bottom of the HTML. The gambling spam is likely hidden there (white text on white background, or display:none).</td><td>15 min</td></tr>
+<tr style="background:#fef2f2"><td><strong>3</strong></td><td><strong>Reset all WordPress admin passwords</strong></td><td>Change all admin user passwords immediately. Check for unknown admin accounts in Users › All Users. Remove any unrecognized accounts.</td><td>10 min</td></tr>
+<tr style="background:#fff7ed"><td><strong>4</strong></td><td><strong>Update WordPress core, themes, plugins</strong></td><td>Outdated plugins are the #1 entry vector. Update everything in Dashboard › Updates. Particularly check: contact form plugins, page builders, file manager plugins.</td><td>20 min</td></tr>
+<tr style="background:#fff7ed"><td><strong>5</strong></td><td><strong>Request Google reconsideration after cleanup</strong></td><td>Once cleaned: GSC › Security &amp; Manual Actions › check for manual penalty. If penalty exists, submit reconsideration request. If none, submit new sitemap to expedite re-crawl.</td><td>15 min</td></tr>
+<tr style="background:#fff7ed"><td><strong>6</strong></td><td><strong>Block xmlrpc.php and disable file editor</strong></td><td>Add to wp-config.php: <code>define('DISALLOW_FILE_EDIT', true);</code> and block xmlrpc.php at the server level (common entry point for spam injection attacks).</td><td>15 min</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="two-col">
+<div class="card">
+<h3>Real Organic Keyword Performance</h3>
+<div class="alert warning" style="margin-bottom:12px"><strong>Observation: 97% of real organic clicks are branded searches</strong><p>Nearly all non-spam clicks are people searching for "price busters plumbing" directly. The site has almost zero organic visibility for non-branded plumbing terms - indicating SEO work is needed across all service keywords.</p></div>
+<table class="data-table">
+<thead><tr><th>Keyword</th><th>Clicks</th><th>Impressions</th><th>CTR</th><th>Avg Position</th><th>Type</th></tr></thead>
+<tbody>
+<tr><td>price busters plumbing</td><td>239</td><td>2,458</td><td>9.7%</td><td>2.3</td><td><span class="badge-blue">Branded</span></td></tr>
+<tr><td>price busters plumbing seattle</td><td>55</td><td>800</td><td>6.9%</td><td>3.7</td><td><span class="badge-blue">Branded</span></td></tr>
+<tr><td>pricebusters plumbing</td><td>35</td><td>128</td><td>27.3%</td><td>1.4</td><td><span class="badge-blue">Branded</span></td></tr>
+<tr><td>price busters plumbing &amp; sewer</td><td>31</td><td>2,037</td><td>1.5%</td><td>2.4</td><td><span class="badge-blue">Branded</span></td></tr>
+<tr><td>price buster plumbing</td><td>22</td><td>168</td><td>13.1%</td><td>5.7</td><td><span class="badge-blue">Branded</span></td></tr>
+<tr><td>price busters plumbing reviews</td><td>12</td><td>606</td><td>2.0%</td><td>5.5</td><td><span class="badge-blue">Branded</span></td></tr>
+<tr><td>price busters</td><td>4</td><td>205</td><td>1.9%</td><td>1.5</td><td><span class="badge-blue">Branded</span></td></tr>
+<tr><td>budget plumbing</td><td>2</td><td>19</td><td>10.5%</td><td>23.2</td><td><span class="badge-gray">Generic</span></td></tr>
+<tr><td>plumbers near me</td><td>2</td><td>1,427</td><td>0.1%</td><td>37.5</td><td><span class="badge-orange">Target</span></td></tr>
+<tr><td>clogged kitchen sink</td><td>1</td><td>2</td><td>50%</td><td>10</td><td><span class="badge-orange">Target</span></td></tr>
+<tr><td>24 hour plumber near me</td><td>1</td><td>278</td><td>0.4%</td><td>37.0</td><td><span class="badge-orange">Target</span></td></tr>
+<tr><td>drain cleaning seattle</td><td>1</td><td>1,111</td><td>0.1%</td><td>61.0</td><td><span class="badge-orange">Target</span></td></tr>
+<tr><td>leak detection near me</td><td>1</td><td>168</td><td>0.6%</td><td>35.9</td><td><span class="badge-orange">Target</span></td></tr>
+<tr><td>plumber seattle</td><td>1</td><td>1,126</td><td>0.1%</td><td>50.3</td><td><span class="badge-orange">Target</span></td></tr>
+<tr><td>plumber near me</td><td>1</td><td>3,022</td><td>0.0%</td><td>23.6</td><td><span class="badge-orange">Target</span></td></tr>
+<tr><td>plumber in bellevue</td><td>1</td><td>229</td><td>0.4%</td><td>63.8</td><td><span class="badge-orange">Target</span></td></tr>
+<tr><td>plumber in lynnwood</td><td>1</td><td>330</td><td>0.3%</td><td>35.1</td><td><span class="badge-orange">Target</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="card">
+<h3>Organic Opportunity Analysis - High Impressions, Low Rank</h3>
+<div class="alert info" style="margin-bottom:12px"><strong>These keywords prove the site CAN get impressions - it just needs stronger pages + authority to move into top 10.</strong></div>
+<table class="data-table">
+<thead><tr><th>Keyword</th><th>Impressions</th><th>Avg Position</th><th>Gap to Page 1</th><th>Opportunity</th></tr></thead>
+<tbody>
+<tr><td>plumber near me</td><td>3,022</td><td>23.6</td><td><span class="badge-red">14 spots</span></td><td>Highest volume term; strengthen homepage + GBP reviews</td></tr>
+<tr><td>drain cleaning service</td><td>2,295</td><td>61.0</td><td><span class="badge-red">51 spots</span></td><td>Add more unique content + FAQ schema to drain page</td></tr>
+<tr><td>price busters plumbing &amp; sewer</td><td>2,037</td><td>2.4</td><td><span class="badge-green">Already ranking</span></td><td>CTR only 1.5% - improve title tag click appeal</td></tr>
+<tr><td>plumber seattle</td><td>1,126</td><td>50.3</td><td><span class="badge-red">40 spots</span></td><td>High competition - requires sustained link building</td></tr>
+<tr><td>drain cleaning seattle</td><td>1,111</td><td>61.0</td><td><span class="badge-red">51 spots</span></td><td>Top target keyword - build topical authority via blog posts</td></tr>
+<tr><td>plumbers near me</td><td>1,427</td><td>37.5</td><td><span class="badge-red">28 spots</span></td><td>Add structured data + more reviews to improve local pack</td></tr>
+<tr><td>plumbing companies near me</td><td>206</td><td>31.5</td><td><span class="badge-red">22 spots</span></td><td>Create "Why choose Price Busters" comparison content</td></tr>
+<tr><td>plumber in lynnwood</td><td>330</td><td>35.1</td><td><span class="badge-red">25 spots</span></td><td>Strengthen Lynnwood location page + GBP signals</td></tr>
+<tr><td>plumber in bellevue</td><td>229</td><td>63.8</td><td><span class="badge-red">54 spots</span></td><td>New GBP + blog post targeting Bellevue (May 2027 calendar)</td></tr>
+<tr><td>leak detection near me</td><td>168</td><td>35.9</td><td><span class="badge-red">26 spots</span></td><td>Add FAQPage schema + cost content to /services/leak-detection/</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div class="card">
+<h3>Top Pages - Click Performance (All Traffic incl. Spam)</h3>
+<div class="alert warning" style="margin-bottom:12px"><strong>Pages marked in red are confirmed or likely spam-injection targets - verify and clean immediately.</strong></div>
+<table class="data-table">
+<thead><tr><th>Page</th><th>Clicks</th><th>Impressions</th><th>CTR</th><th>Avg Position</th><th>Assessment</th></tr></thead>
+<tbody>
+<tr style="background:#fef2f2"><td><a href="https://pricebustersplumbing.com/sitemap/" target="_blank" style="color:var(--primary)">/sitemap/</a></td><td>680</td><td>5,863</td><td>11.6%</td><td>5.3</td><td><span class="badge-red">Spam-infected - 680 gambling clicks</span></td></tr>
+<tr style="background:#fef2f2"><td><a href="https://pricebustersplumbing.com/about-us/gallery/" target="_blank" style="color:var(--primary)">/about-us/gallery/</a></td><td>652</td><td>10,765</td><td>6.1%</td><td>6.8</td><td><span class="badge-red">Spam-infected - 652 gambling clicks</span></td></tr>
+<tr><td><a href="https://pricebustersplumbing.com/" target="_blank" style="color:var(--primary)">/</a> (Homepage)</td><td>564</td><td>101,313</td><td>0.56%</td><td>34.1</td><td><span class="badge-yellow">Low CTR for homepage - title/meta optimization needed</span></td></tr>
+<tr><td><a href="https://pricebustersplumbing.com/blog/" target="_blank" style="color:var(--primary)">/blog/</a></td><td>259</td><td>9,227</td><td>2.8%</td><td>7.3</td><td><span class="badge-green">Good performance - grow blog content</span></td></tr>
+<tr style="background:#fef2f2"><td><a href="https://pricebustersplumbing.com/specials/" target="_blank" style="color:var(--primary)">/specials/</a></td><td>203</td><td>172,362</td><td>0.12%</td><td>8.1</td><td><span class="badge-red">172K impressions for spam terms - check immediately</span></td></tr>
+<tr><td><a href="https://pricebustersplumbing.com/service-areas/bothell-wa/" target="_blank" style="color:var(--primary)">/service-areas/bothell-wa/</a></td><td>103</td><td>27,983</td><td>0.37%</td><td>35.2</td><td><span class="badge-orange">Position 35 - needs content + link authority</span></td></tr>
+<tr><td><a href="https://pricebustersplumbing.com/contact/" target="_blank" style="color:var(--primary)">/contact/</a></td><td>90</td><td>15,740</td><td>0.57%</td><td>28.7</td><td><span class="badge-yellow">Improve page for local search signals</span></td></tr>
+<tr><td><a href="https://pricebustersplumbing.com/service-areas/" target="_blank" style="color:var(--primary)">/service-areas/</a></td><td>87</td><td>8,001</td><td>1.09%</td><td>5.7</td><td><span class="badge-green">Good position - optimize for "plumber [city]" terms</span></td></tr>
+<tr><td><a href="https://pricebustersplumbing.com/service-areas/mukilteo-wa/" target="_blank" style="color:var(--primary)">/service-areas/mukilteo-wa/</a></td><td>84</td><td>19,699</td><td>0.43%</td><td>27.0</td><td><span class="badge-orange">Position 27 - add local content and FAQ schema</span></td></tr>
+<tr><td><a href="https://pricebustersplumbing.com/about-us/testimonials/" target="_blank" style="color:var(--primary)">/about-us/testimonials/</a></td><td>62</td><td>3,603</td><td>1.7%</td><td>6.5</td><td><span class="badge-green">Good position - add Review schema markup</span></td></tr>
+<tr><td><a href="https://pricebustersplumbing.com/service-areas/lynnwood-wa/" target="_blank" style="color:var(--primary)">/service-areas/lynnwood-wa/</a></td><td>46</td><td>15,154</td><td>0.30%</td><td>35.9</td><td><span class="badge-orange">Lynnwood is #1 GBP but only position 36 organic</span></td></tr>
+<tr><td><a href="https://pricebustersplumbing.com/service-areas/lynnwood-wa/plumbing-lynnwood-wa/" target="_blank" style="color:var(--primary)">/service-areas/lynnwood-wa/plumbing-lynnwood-wa/</a></td><td>5</td><td>24,851</td><td>0.02%</td><td>41.3</td><td><span class="badge-red">24K impressions at position 41 - needs major content upgrade</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="card">
+<h3>Search Console Key Takeaways</h3>
+<div class="three-col">
+  <div class="alert danger">
+    <strong>1. Fix the Hack First</strong>
+    <p>The gambling spam injection is the single most urgent issue. Until cleaned, Google is penalizing trust in this domain for all plumbing queries. The spam may already have triggered an algorithmic demotion - explaining the very low positions for target keywords.</p>
+  </div>
+  <div class="alert warning">
+    <strong>2. Zero Non-Branded Organic Traffic</strong>
+    <p>Despite 1M+ impressions, only ~20 real non-branded clicks came through in 6 months. The site appears on page 3–7 for every target keyword ("plumber seattle," "drain cleaning," "plumber near me"). Needs sustained technical SEO and content work to move up.</p>
+  </div>
+  <div class="alert info">
+    <strong>3. Blog Is the Bright Spot</strong>
+    <p>The /blog/ page generates 259 clicks at position 7.3 - the best organic performance outside branded searches. Investing in the Blog Content Calendar (see that tab) is the highest-ROI SEO move available right now, alongside fixing the hack.</p>
+  </div>
+</div>
+</div>
 
 </section>
 </div>
